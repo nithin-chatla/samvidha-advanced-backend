@@ -14,17 +14,8 @@ import threading
 import asyncio
 import aiohttp
 from urllib.parse import urljoin
-import firebase_admin
-from firebase_admin import credentials, messaging
+# Academic & Portal Server
 
-# Firebase Admin handled in Server 2
-
-try:
-    import fitz  # PyMuPDF
-    from PIL import Image
-except ImportError:
-    fitz = None
-    Image = None
 
 app = Flask(__name__)
 CORS(app)
