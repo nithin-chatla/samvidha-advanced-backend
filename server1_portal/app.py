@@ -36,6 +36,28 @@ scraping_executor = concurrent.futures.ThreadPoolExecutor(max_workers=MAX_CONCUR
 BASE = "https://samvidha.iare.ac.in"
 LOGIN_URL = BASE + "/pages/login/checkUser.php"
 
+# ─── 24/7 Anti-Sleep Keep-Alive Engine ───────────────────────────
+def _keep_alive_pinger():
+    targets = [
+        "https://samvidha-notify-api.onrender.com/health",
+        "https://samvidha-portal-1.onrender.com/health",
+        "https://samvidha-portal-2.onrender.com/health",
+        "https://samvidha-ai-api.onrender.com/health",
+    ]
+    time.sleep(30)
+    while True:
+        try:
+            for url in targets:
+                try:
+                    requests.get(url, timeout=10)
+                except Exception:
+                    pass
+        except Exception:
+            pass
+        time.sleep(540) # Every 9 minutes
+
+threading.Thread(target=_keep_alive_pinger, daemon=True).start()
+
 class SessionProxy:
     def __getitem__(self, key): return g.session
     def __contains__(self, key): return True

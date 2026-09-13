@@ -297,7 +297,31 @@ def notify_admin_alert():
         return jsonify({"success": True, "status": "dispatched_async"})
     except Exception as e:
         print(f"FCM Error: {e}")
-        return jsonify({"success": False, "error": str(e)}), 500
+# ─── Automatic 24/7 Anti-Sleep Keep-Alive Engine ───────────────────────────
+import threading
+import requests
+
+def _keep_alive_pinger():
+    """Pings all Render microservices every 9 minutes so they NEVER spin down to sleep"""
+    targets = [
+        "https://samvidha-notify-api.onrender.com/health",
+        "https://samvidha-portal-1.onrender.com/health",
+        "https://samvidha-portal-2.onrender.com/health",
+        "https://samvidha-ai-api.onrender.com/health",
+    ]
+    time.sleep(30)
+    while True:
+        try:
+            for url in targets:
+                try:
+                    requests.get(url, timeout=10)
+                except Exception:
+                    pass
+        except Exception as e:
+            print(f"⚠️ [Keep-Alive]: {e}")
+        time.sleep(540)
+
+threading.Thread(target=_keep_alive_pinger, daemon=True).start()
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5002))
