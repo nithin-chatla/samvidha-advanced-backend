@@ -23,13 +23,12 @@ CORS(app)
 import gc
 from requests.adapters import HTTPAdapter
 
-# Concurrency & Memory Limiter for Render Free Tier (512MB RAM)
-# Limits simultaneous outbound scrapers to 12 workers to prevent OOM
-MAX_CONCURRENT_SCRAPES = 12
+# High-Concurrency Async & Scraping Worker Pool
+MAX_CONCURRENT_SCRAPES = 24
 SCRAPE_SEMAPHORE = threading.Semaphore(MAX_CONCURRENT_SCRAPES)
 
 # Connection pool adapter for high concurrency socket reuse
-HTTP_ADAPTER = HTTPAdapter(pool_connections=20, pool_maxsize=40, max_retries=2)
+HTTP_ADAPTER = HTTPAdapter(pool_connections=50, pool_maxsize=100, max_retries=3)
 
 # Global Thread Pool
 scraping_executor = concurrent.futures.ThreadPoolExecutor(max_workers=MAX_CONCURRENT_SCRAPES)
