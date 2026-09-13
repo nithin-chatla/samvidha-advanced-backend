@@ -63,17 +63,20 @@ def _init_firebase_apps():
 
 _init_firebase_apps()
 
+def _send_fcm_worker(fb_app, push_msg):
+    try:
+        messaging.send(push_msg, app=fb_app)
+    except Exception as app_err:
+        print(f"⚠️ [FCM Send Error on {fb_app.name}]: {app_err}")
+
 def _dispatch_fcm_async(push_msg):
-    """Broadcasts FCM push notifications to all configured Firebase projects concurrently"""
+    """Broadcasts FCM push notifications to all configured Firebase projects concurrently in parallel"""
     try:
         apps = list(firebase_admin._apps.values())
         if not apps:
             return None
         for fb_app in apps:
-            try:
-                messaging.send(push_msg, app=fb_app)
-            except Exception as app_err:
-                print(f"⚠️ [FCM Send Error on {fb_app.name}]: {app_err}")
+            executor.submit(_send_fcm_worker, fb_app, push_msg)
     except Exception as e:
         print(f"⚠️ [FCM Dispatch Error]: {e}")
 
@@ -121,8 +124,6 @@ def notify_anon_chat():
             },
             android=messaging.AndroidConfig(
                 priority="high",
-                ttl=3600,
-                collapse_key="anon_chat",
                 notification=messaging.AndroidNotification(
                     channel_id="samvidha_alerts_high",
                     priority="high",
@@ -138,7 +139,7 @@ def notify_anon_chat():
         )
         
         # Dispatch in background worker thread instantly
-        executor.submit(_dispatch_fcm_async, push_msg)
+        _dispatch_fcm_async(push_msg)
         return jsonify({"success": True, "status": "dispatched_async"})
     except Exception as e:
         print(f"FCM Error: {e}")
@@ -166,8 +167,6 @@ def notify_messenger():
         if len(message) > 80:
             message = message[:77] + "..."
         
-        collapse_key_val = f"dm_{sender.replace(' ', '_')}"
-        
         push_msg = messaging.Message(
             notification=messaging.Notification(
                 title=title,
@@ -175,11 +174,8 @@ def notify_messenger():
             ),
             android=messaging.AndroidConfig(
                 priority="high",
-                ttl=3600,
-                collapse_key=collapse_key_val,
                 notification=messaging.AndroidNotification(
                     channel_id="samvidha_alerts_high",
-                    tag=collapse_key_val,
                     priority="high",
                     default_sound=True,
                     default_vibrate_timings=True,
@@ -188,7 +184,7 @@ def notify_messenger():
                 )
             ),
             apns=messaging.APNSConfig(
-                headers={"apns-priority": "10", "apns-push-type": "alert", "apns-collapse-id": collapse_key_val}
+                headers={"apns-priority": "10", "apns-push-type": "alert"}
             ),
             topic=topic,
             data={
@@ -200,7 +196,7 @@ def notify_messenger():
             }
         )
         
-        executor.submit(_dispatch_fcm_async, push_msg)
+        _dispatch_fcm_async(push_msg)
         return jsonify({"success": True, "status": "dispatched_async"})
     except Exception as e:
         print(f"FCM Error: {e}")
@@ -231,7 +227,6 @@ def notify_batch():
                 ),
                 android=messaging.AndroidConfig(
                     priority="high",
-                    ttl=3600,
                     notification=messaging.AndroidNotification(
                         channel_id="samvidha_alerts_high",
                         priority="high",
@@ -251,7 +246,7 @@ def notify_batch():
                     "sender": sender
                 }
             )
-            executor.submit(_dispatch_fcm_async, push_msg)
+            _dispatch_fcm_async(push_msg)
             
         return jsonify({"success": True, "dispatched_count": len(recipients)})
     except Exception as e:
