@@ -1,8 +1,5 @@
 flask==3.0.3
 flask-cors==4.0.1
 requests==2.31.0
-google-generativeai==0.8.3
 gunicorn==22.0.0
-pymupdf==1.24.4
-pillow==10.3.0
 python-dotenv==1.0.1
