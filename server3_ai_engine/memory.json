@@ -1,0 +1,6769 @@
+{
+  "metadata": {
+    "name": "Samvidha AI Memory",
+    "version": "5.0.0",
+    "description": "Primary knowledge base for Samvidha AI - Institute of Aeronautical Engineering.",
+    "college": "Institute of Aeronautical Engineering",
+    "short_name": "IARE",
+    "language": "English",
+    "country": "India",
+    "timezone": "Asia/Kolkata",
+    "encoding": "UTF-8",
+    "created_for": "Samvidha AI",
+    "status": "production",
+    "last_updated": "2026-07-24"
+  },
+
+  "assistant": {
+    "name": "Samvidha AI",
+    "full_name": "Samvidha Artificial Intelligence Assistant",
+    "identity": "Official AI Assistant of Institute of Aeronautical Engineering",
+
+    "personality": {
+      "friendly": true,
+      "professional": true,
+      "helpful": true,
+      "respectful": true,
+      "concise": true,
+      "student_focused": true
+    },
+
+    "behavior": {
+      "never_guess": true,
+      "prefer_verified_information": true,
+      "mention_if_unknown": true,
+      "use_bullets": true,
+      "use_markdown": true,
+      "max_answer_words": 300
+    },
+
+    "supported_topics": [
+      "College Information",
+      "Academics",
+      "Attendance",
+      "Examinations",
+      "Departments",
+      "Placements",
+      "Scholarships",
+      "Transport",
+      "Hostel",
+      "Library",
+      "Student Services",
+      "Samvidha Portal",
+      "Campus Facilities",
+      "Clubs",
+      "Events"
+    ]
+  },
+
+  "settings": {
+    "default_language": "English",
+    "fallback_response": "I couldn't find verified information for your question. Please contact the concerned department.",
+    "unknown_status": "needs_verification",
+    "search_case_sensitive": false,
+    "allow_keyword_matching": true,
+    "allow_alias_matching": true
+  },
+
+  "knowledge": [
+    {
+  "id": 56,
+  "type": "examination_services",
+  "category": "Examinations",
+  "title": "Examination Services",
+
+  "keywords": [
+    "exam",
+    "examination",
+    "semester exam",
+    "end semester",
+    "hall ticket",
+    "results",
+    "grade sheet",
+    "marks memo",
+    "supplementary",
+    "revaluation",
+    "photocopy",
+    "backlog",
+    "exam notification",
+    "exam form",
+    "exam registration",
+    "supply",
+    "recounting"
+  ],
+
+  "aliases": [
+    "Exam Branch",
+    "COE",
+    "Controller of Examinations",
+    "Semester Exams"
+  ],
+
+  "examples": [
+    "How do I download my hall ticket?",
+    "My hall ticket is not available.",
+    "When will results be released?",
+    "How do I apply for revaluation?",
+    "How do I apply for supplementary exams?",
+    "Can I get my answer sheet?",
+    "Where can I download my grade sheet?",
+    "I failed one subject. What should I do?",
+    "How do I register for exams?",
+    "Where is the Examination Branch?"
+  ],
+
+  "sections": {
+
+    "hall_ticket": {
+      "description": "",
+      "portal": "",
+      "requirements": [],
+      "common_problems": [],
+      "verified": false
+    },
+
+    "exam_registration": {
+      "description": "",
+      "last_date": "",
+      "late_fee": "",
+      "verified": false
+    },
+
+    "results": {
+      "description": "",
+      "portal": "",
+      "publish_process": "",
+      "verified": false
+    },
+
+    "grade_sheet": {
+      "description": "",
+      "download": "",
+      "verified": false
+    },
+
+    "revaluation": {
+      "description": "",
+      "fee": "",
+      "process": [],
+      "verified": false
+    },
+
+    "photocopy": {
+      "available": "",
+      "process": [],
+      "verified": false
+    },
+
+    "supplementary": {
+      "description": "",
+      "eligibility": "",
+      "registration": "",
+      "verified": false
+    },
+
+    "backlogs": {
+      "description": "",
+      "rules": [],
+      "verified": false
+    },
+
+    "exam_branch": {
+      "description": "Handles examinations, hall tickets, results, grade sheets, supplementary examinations, and revaluation requests."
+    }
+  },
+
+  "faq": [
+    {
+      "question": "How do I download my hall ticket?",
+      "answer": ""
+    },
+    {
+      "question": "Hall ticket not showing.",
+      "answer": ""
+    },
+    {
+      "question": "When are results released?",
+      "answer": ""
+    },
+    {
+      "question": "How do I apply for revaluation?",
+      "answer": ""
+    },
+    {
+      "question": "How do I apply for supplementary exams?",
+      "answer": ""
+    },
+    {
+      "question": "Where can I get my marks memo?",
+      "answer": ""
+    },
+    {
+      "question": "How do I obtain my grade sheet?",
+      "answer": ""
+    },
+    {
+      "question": "Can I apply for answer sheet photocopy?",
+      "answer": ""
+    }
+  ],
+
+  "related_ids": [
+    32,
+    46,
+    48,
+    49,
+    50
+  ],
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "Official IARE Examination Branch"
+},
+
+    {
+      "id": 1,
+      "type": "college",
+
+      "category": "College",
+
+      "title": "Institute of Aeronautical Engineering",
+
+      "keywords": [
+        "iare",
+        "college",
+        "engineering college",
+        "institute of aeronautical engineering",
+        "hyderabad",
+        "dundigal"
+      ],
+
+      "aliases": [
+        "IARE",
+        "IARE Hyderabad",
+        "Institute of Aeronautical Engineering College"
+      ],
+
+      "examples": [
+        "What is IARE?",
+        "Tell me about IARE.",
+        "Where is IARE located?",
+        "Which university is IARE affiliated to?"
+      ],
+
+      "data": {
+        "official_name": "Institute of Aeronautical Engineering",
+        "short_name": "IARE",
+        "autonomous": true,
+        "affiliated_to": "Jawaharlal Nehru Technological University Hyderabad (JNTUH)",
+        "naac_grade": "A++",
+        "website": "https://www.iare.ac.in",
+        "location": {
+          "area": "Dundigal",
+          "city": "Hyderabad",
+          "district": "Medchal-Malkajgiri",
+          "state": "Telangana",
+          "country": "India"
+        },
+        "chairman": "Marri Rajasekhar Reddy",
+        "principal": "Dr. L. V. Narasimha Prasad"
+      },
+
+      "answer": "Institute of Aeronautical Engineering (IARE) is an autonomous engineering college located in Dundigal, Hyderabad, Telangana. It is affiliated with JNTUH and has an A++ NAAC accreditation.",
+
+      "priority": 100,
+
+      "verified": true,
+
+      "source": "Official IARE Website",
+
+      "related_ids": [
+        2,
+        3,
+        4
+      ]
+    },
+{
+  "id": 2,
+  "type": "vision",
+  "category": "College",
+  "title": "College Vision",
+  "keywords": [
+    "vision",
+    "college vision",
+    "IARE vision",
+    "vision statement"
+  ],
+  "aliases": [
+    "vision",
+    "mission vision"
+  ],
+  "examples": [
+    "What is the vision of IARE?",
+    "College vision",
+    "Vision statement"
+  ],
+  "data": {},
+  "answer": "",
+  "priority": 95,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [1,3]
+},
+{
+  "id": 3,
+  "type": "mission",
+  "category": "College",
+  "title": "College Mission",
+  "keywords": [
+    "mission",
+    "college mission",
+    "IARE mission"
+  ],
+  "aliases": [
+    "mission statement"
+  ],
+  "examples": [
+    "What is the mission of IARE?",
+    "College mission"
+  ],
+  "data": {},
+  "answer": "",
+  "priority": 95,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [1,2]
+},
+{
+  "id": 4,
+  "type": "quality_policy",
+  "category": "College",
+  "title": "Quality Policy",
+  "keywords": [
+    "quality policy",
+    "policy",
+    "quality"
+  ],
+  "aliases": [
+    "college quality policy"
+  ],
+  "examples": [
+    "What is the quality policy?"
+  ],
+  "data": {},
+  "answer": "",
+  "priority": 90,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [1]
+},
+{
+  "id": 5,
+  "type": "leadership",
+  "category": "College",
+  "title": "College Leadership",
+  "keywords": [
+    "principal",
+    "chairman",
+    "management",
+    "leadership"
+  ],
+  "aliases": [
+    "college management"
+  ],
+  "examples": [
+    "Who is the principal?",
+    "Who is the chairman?"
+  ],
+  "data": {
+    "chairman": "Marri Rajasekhar Reddy",
+    "principal": "Dr. L. V. Narasimha Prasad"
+  },
+  "answer": "The Chairman of IARE is Marri Rajasekhar Reddy and the Principal is Dr. L. V. Narasimha Prasad.",
+  "priority": 100,
+  "verified": true,
+  "source": "Official IARE Website",
+  "related_ids": [1]
+},
+{
+  "id": 6,
+  "type": "location",
+  "category": "College",
+  "title": "College Location",
+  "keywords": [
+    "location",
+    "address",
+    "where is iare",
+    "hyderabad",
+    "dundigal"
+  ],
+  "aliases": [
+    "college address"
+  ],
+  "examples": [
+    "Where is IARE?",
+    "College location"
+  ],
+  "data": {
+    "area": "Dundigal",
+    "city": "Hyderabad",
+    "district": "Medchal-Malkajgiri",
+    "state": "Telangana",
+    "country": "India"
+  },
+  "answer": "IARE is located in Dundigal, Hyderabad, Telangana, India.",
+  "priority": 95,
+  "verified": true,
+  "source": "Official IARE Website",
+  "related_ids": [1]
+},
+{
+  "id": 7,
+  "type": "accreditation",
+  "category": "College",
+  "title": "Accreditations and Recognition",
+  "keywords": [
+    "naac",
+    "nba",
+    "ugc",
+    "aicte",
+    "accreditation",
+    "recognition",
+    "approval"
+  ],
+  "aliases": [
+    "college accreditation",
+    "college approval"
+  ],
+  "examples": [
+    "Is IARE NAAC accredited?",
+    "Does IARE have NBA?",
+    "Is IARE approved by AICTE?"
+  ],
+  "data": {},
+  "answer": "",
+  "priority": 100,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [1]
+},
+{
+  "id": 8,
+  "type": "affiliation",
+  "category": "College",
+  "title": "University Affiliation",
+  "keywords": [
+    "affiliation",
+    "jntuh",
+    "affiliated",
+    "university"
+  ],
+  "aliases": [
+    "college university"
+  ],
+  "examples": [
+    "Which university is IARE affiliated to?",
+    "Is IARE under JNTUH?"
+  ],
+  "data": {
+    "university": "Jawaharlal Nehru Technological University Hyderabad (JNTUH)",
+    "autonomous": true
+  },
+  "answer": "IARE is an autonomous institution affiliated with Jawaharlal Nehru Technological University Hyderabad (JNTUH).",
+  "priority": 100,
+  "verified": true,
+  "source": "Official IARE Website",
+  "related_ids": [1]
+},
+{
+  "id": 9,
+  "type": "contact",
+  "category": "College",
+  "title": "Official Contact Information",
+  "keywords": [
+    "contact",
+    "phone",
+    "email",
+    "office",
+    "help"
+  ],
+  "aliases": [
+    "college contact",
+    "official contact"
+  ],
+  "examples": [
+    "What is the college phone number?",
+    "Official email?"
+  ],
+  "data": {},
+  "answer": "",
+  "priority": 95,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [1]
+},
+{
+  "id": 10,
+  "type": "website",
+  "category": "College",
+  "title": "Official Website",
+  "keywords": [
+    "website",
+    "official website",
+    "college website",
+    "url"
+  ],
+  "aliases": [
+    "iare website"
+  ],
+  "examples": [
+    "What is the official website?",
+    "College website?"
+  ],
+  "data": {
+    "website": "https://www.iare.ac.in"
+  },
+  "answer": "The official website of IARE is https://www.iare.ac.in",
+  "priority": 100,
+  "verified": true,
+  "source": "Official IARE Website",
+  "related_ids": [1]
+},
+{
+  "id": 11,
+  "type": "campus",
+  "category": "College",
+  "title": "Campus Overview",
+  "keywords": [
+    "campus",
+    "college campus",
+    "infrastructure",
+    "facilities"
+  ],
+  "aliases": [
+    "campus information"
+  ],
+  "examples": [
+    "Tell me about the campus.",
+    "Campus facilities?"
+  ],
+  "data": {},
+  "answer": "",
+  "priority": 90,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [1]
+},
+{
+  "id": 12,
+  "type": "departments",
+  "category": "College",
+  "title": "Academic Departments",
+  "keywords": [
+    "departments",
+    "branches",
+    "courses",
+    "engineering branches"
+  ],
+  "aliases": [
+    "college branches"
+  ],
+  "examples": [
+    "Which departments are available?",
+    "Engineering branches?"
+  ],
+  "data": {
+    "departments": []
+  },
+  "answer": "",
+  "priority": 100,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [13,14,15,16,17]
+},
+{
+  "id": 13,
+  "type": "department",
+  "category": "Department",
+  "title": "Computer Science and Engineering",
+  "keywords": [
+    "cse",
+    "computer science",
+    "computer engineering"
+  ],
+  "aliases": [
+    "CSE Department"
+  ],
+  "examples": [
+    "Tell me about CSE."
+  ],
+  "data": {},
+  "answer": "",
+  "priority": 90,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [12]
+},
+{
+  "id": 14,
+  "type": "department",
+  "category": "Department",
+  "title": "Artificial Intelligence and Machine Learning",
+  "keywords": [
+    "aiml",
+    "ai",
+    "machine learning"
+  ],
+  "aliases": [
+    "AI & ML"
+  ],
+  "examples": [
+    "Tell me about AIML."
+  ],
+  "data": {},
+  "answer": "",
+  "priority": 90,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [12]
+},
+{
+  "id": 15,
+  "type": "department",
+  "category": "Department",
+  "title": "Information Technology",
+  "keywords": [
+    "it",
+    "information technology"
+  ],
+  "aliases": [
+    "IT Department"
+  ],
+  "examples": [
+    "Tell me about IT."
+  ],
+  "data": {},
+  "answer": "",
+  "priority": 90,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [12]
+},
+{
+  "id": 16,
+  "type": "department",
+  "category": "Department",
+  "title": "Electronics and Communication Engineering",
+  "keywords": ["ece","electronics","communication","electronics and communication"],
+  "aliases": ["ECE Department"],
+  "examples": ["Tell me about ECE."],
+  "data": {},
+  "answer": "",
+  "priority": 90,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [12]
+},
+{
+  "id": 17,
+  "type": "department",
+  "category": "Department",
+  "title": "Electrical and Electronics Engineering",
+  "keywords": ["eee","electrical","electrical engineering"],
+  "aliases": ["EEE Department"],
+  "examples": ["Tell me about EEE."],
+  "data": {},
+  "answer": "",
+  "priority": 90,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [12]
+},
+{
+  "id": 18,
+  "type": "department",
+  "category": "Department",
+  "title": "Mechanical Engineering",
+  "keywords": ["mechanical","me","mechanical engineering"],
+  "aliases": ["Mechanical Department"],
+  "examples": ["Tell me about Mechanical Engineering."],
+  "data": {},
+  "answer": "",
+  "priority": 90,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [12]
+},
+{
+  "id": 19,
+  "type": "department",
+  "category": "Department",
+  "title": "Aeronautical Engineering",
+  "keywords": ["aeronautical","ae","aircraft engineering"],
+  "aliases": ["AE Department"],
+  "examples": ["Tell me about Aeronautical Engineering."],
+  "data": {},
+  "answer": "",
+  "priority": 90,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [12]
+},
+{
+  "id": 20,
+  "type": "department",
+  "category": "Department",
+  "title": "Civil Engineering",
+  "keywords": ["civil","ce","civil engineering"],
+  "aliases": ["Civil Department"],
+  "examples": ["Tell me about Civil Engineering."],
+  "data": {},
+  "answer": "",
+  "priority": 90,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [12]
+},
+{
+  "id": 21,
+  "type": "library",
+  "category": "Facility",
+  "title": "Central Library",
+  "keywords": ["library","books","digital library","journals"],
+  "aliases": ["College Library"],
+  "examples": ["Where is the library?","Library timings"],
+  "data": {},
+  "answer": "",
+  "priority": 95,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [1]
+},
+{
+  "id": 22,
+  "type": "hostel",
+  "category": "Facility",
+  "title": "Hostel",
+  "keywords": ["hostel","boys hostel","girls hostel","accommodation"],
+  "aliases": ["College Hostel"],
+  "examples": ["Does IARE provide hostel?"],
+  "data": {},
+  "answer": "",
+  "priority": 95,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [1]
+},
+{
+  "id": 23,
+  "type": "transport",
+  "category": "Facility",
+  "title": "Transport",
+  "keywords": ["bus","transport","college bus","bus routes"],
+  "aliases": ["College Transport"],
+  "examples": ["Bus routes","Transport facility"],
+  "data": {},
+  "answer": "",
+  "priority": 95,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [1]
+},
+{
+  "id": 24,
+  "type": "cafeteria",
+  "category": "Facility",
+  "title": "Cafeteria",
+  "keywords": ["canteen","cafeteria","food court","snacks"],
+  "aliases": ["College Canteen"],
+  "examples": ["Is there a cafeteria?"],
+  "data": {},
+  "answer": "",
+  "priority": 85,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [1]
+},
+{
+  "id": 25,
+  "type": "sports",
+  "category": "Facility",
+  "title": "Sports Facilities",
+  "keywords": ["sports","games","playground","indoor games","gym"],
+  "aliases": ["Sports"],
+  "examples": ["Sports facilities"],
+  "data": {},
+  "answer": "",
+  "priority": 85,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [1]
+},
+{
+  "id": 26,
+  "type": "medical",
+  "category": "Facility",
+  "title": "Health Centre",
+  "keywords": ["health","medical","clinic","first aid"],
+  "aliases": ["Medical Centre"],
+  "examples": ["Medical facilities"],
+  "data": {},
+  "answer": "",
+  "priority": 80,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [1]
+},
+{
+  "id": 27,
+  "type": "wifi",
+  "category": "Facility",
+  "title": "Campus Wi-Fi",
+  "keywords": ["wifi","internet","wireless","network"],
+  "aliases": ["Campus Internet"],
+  "examples": ["Is Wi-Fi available?"],
+  "data": {},
+  "answer": "",
+  "priority": 80,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [1]
+},
+{
+  "id": 28,
+  "type": "laboratories",
+  "category": "Facility",
+  "title": "Laboratories",
+  "keywords": ["labs","laboratories","computer labs","engineering labs"],
+  "aliases": ["Labs"],
+  "examples": ["Tell me about laboratories."],
+  "data": {},
+  "answer": "",
+  "priority": 90,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [12]
+},
+{
+  "id": 29,
+  "type": "innovation",
+  "category": "Research",
+  "title": "Innovation and Incubation",
+  "keywords": ["innovation","incubation","startup","entrepreneurship","innovation cell"],
+  "aliases": ["Innovation Cell"],
+  "examples": ["Startup support"],
+  "data": {},
+  "answer": "",
+  "priority": 80,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [1]
+},
+{
+  "id": 30,
+  "type": "placements",
+  "category": "Career",
+  "title": "Training and Placement Cell",
+  "keywords": ["placements","placement cell","jobs","career","campus placements","tpo"],
+  "aliases": ["Placement Cell","Career Development"],
+  "examples": ["Tell me about placements.","Placement office"],
+  "data": {},
+  "answer": "",
+  "priority": 100,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official IARE Website",
+  "related_ids": [1]
+},
+{
+  "id": 31,
+  "type": "office",
+  "category": "Administration",
+  "title": "Principal Office",
+  "keywords": [
+    "principal office",
+    "principal",
+    "head of college",
+    "principal cabin"
+  ],
+  "aliases": [
+    "Principal Chamber"
+  ],
+  "examples": [
+    "Where is the principal office?",
+    "How can I meet the principal?"
+  ],
+  "data": {
+    "purpose": "Administrative leadership of the institution."
+  },
+  "answer": "The Principal's Office is responsible for the overall academic and administrative management of the institution. Students should contact the office through the proper appointment or department channel when required.",
+  "priority": 100,
+  "verified": true,
+  "source": "Official IARE",
+  "related_ids": [5]
+},
+{
+  "id": 32,
+  "type": "office",
+  "category": "Administration",
+  "title": "Examination Branch",
+  "keywords": [
+    "exam branch",
+    "controller of examinations",
+    "coe",
+    "examination office"
+  ],
+  "aliases": [
+    "COE Office"
+  ],
+  "examples": [
+    "Where is the exam branch?",
+    "Who handles exam issues?"
+  ],
+  "data": {
+    "services": [
+      "Hall Tickets",
+      "Results",
+      "Revaluation",
+      "Exam Notifications",
+      "Grade Sheets"
+    ]
+  },
+  "answer": "The Examination Branch manages all examination-related activities including hall tickets, examinations, results, grade sheets, supplementary examinations, and revaluation.",
+  "priority": 100,
+  "verified": true,
+  "source": "Official IARE",
+  "related_ids": [201]
+},
+{
+  "id": 33,
+  "type": "office",
+  "category": "Administration",
+  "title": "Accounts Section",
+  "keywords": [
+    "accounts",
+    "fee office",
+    "finance",
+    "payments"
+  ],
+  "aliases": [
+    "Accounts Office"
+  ],
+  "examples": [
+    "Where can I pay fees?",
+    "Need fee receipt."
+  ],
+  "data": {
+    "services": [
+      "Fee Payment",
+      "Fee Receipts",
+      "Refund Queries"
+    ]
+  },
+  "answer": "The Accounts Section handles tuition fee payments, receipt generation, refunds (where applicable), and finance-related student services.",
+  "priority": 95,
+  "verified": true,
+  "source": "Official IARE",
+  "related_ids": []
+},
+{
+  "id": 34,
+  "type": "office",
+  "category": "Administration",
+  "title": "Admissions Office",
+  "keywords": [
+    "admission",
+    "join college",
+    "seat",
+    "admission office"
+  ],
+  "aliases": [
+    "Admissions Cell"
+  ],
+  "examples": [
+    "Admission enquiry",
+    "How do I join IARE?"
+  ],
+  "data": {},
+  "answer": "The Admissions Office assists prospective students with admission procedures, eligibility, counseling, document verification, and fee details.",
+  "priority": 95,
+  "verified": true,
+  "source": "Official IARE",
+  "related_ids": []
+},
+{
+  "id": 35,
+  "type": "office",
+  "category": "Administration",
+  "title": "Student Section",
+  "keywords": [
+    "student section",
+    "student office",
+    "student services"
+  ],
+  "aliases": [
+    "Student Support"
+  ],
+  "examples": [
+    "Need bonafide certificate.",
+    "Need student services."
+  ],
+  "data": {
+    "services": [
+      "Bonafide Certificate",
+      "Study Certificate",
+      "Transfer Certificate",
+      "Conduct Certificate"
+    ]
+  },
+  "answer": "The Student Section provides student-related certificates, record verification, and administrative support.",
+  "priority": 100,
+  "verified": true,
+  "source": "Official IARE",
+  "related_ids": []
+},
+{
+  "id": 36,
+  "type": "office",
+  "category": "Administration",
+  "title": "Training and Placement Office",
+  "keywords": [
+    "placement office",
+    "placement cell",
+    "career development"
+  ],
+  "aliases": [
+    "TPO"
+  ],
+  "examples": [
+    "Placement office",
+    "Campus placements"
+  ],
+  "data": {
+    "services": [
+      "Campus Recruitment",
+      "Training Programs",
+      "Mock Interviews",
+      "Career Guidance"
+    ]
+  },
+  "answer": "The Training and Placement Office coordinates placement drives, internships, career guidance, aptitude training, and industry interactions.",
+  "priority": 100,
+  "verified": true,
+  "source": "Official IARE",
+  "related_ids": [30]
+},
+{
+  "id": 37,
+  "type": "office",
+  "category": "Administration",
+  "title": "Library Help Desk",
+  "keywords": [
+    "library help",
+    "issue books",
+    "return books"
+  ],
+  "aliases": [
+    "Library Counter"
+  ],
+  "examples": [
+    "Issue a book.",
+    "Library help."
+  ],
+  "data": {},
+  "answer": "The Library Help Desk assists students with book issue/return, digital resources, library membership, and journal access.",
+  "priority": 90,
+  "verified": true,
+  "source": "Official IARE",
+  "related_ids": [21]
+},
+{
+  "id": 38,
+  "type": "office",
+  "category": "Administration",
+  "title": "Transport Office",
+  "keywords": [
+    "transport office",
+    "bus office",
+    "bus pass"
+  ],
+  "aliases": [
+    "Bus Office"
+  ],
+  "examples": [
+    "Need bus information."
+  ],
+  "data": {},
+  "answer": "The Transport Office manages college bus routes, transport registration, fee collection, and route-related enquiries.",
+  "priority": 90,
+  "verified": true,
+  "source": "Official IARE",
+  "related_ids": [23]
+},
+{
+  "id": 39,
+  "type": "office",
+  "category": "Administration",
+  "title": "Hostel Office",
+  "keywords": [
+    "hostel office",
+    "hostel registration",
+    "warden"
+  ],
+  "aliases": [
+    "Hostel Administration"
+  ],
+  "examples": [
+    "Hostel enquiry."
+  ],
+  "data": {},
+  "answer": "The Hostel Office manages hostel admissions, room allotment, hostel rules, and accommodation support.",
+  "priority": 90,
+  "verified": true,
+  "source": "Official IARE",
+  "related_ids": [22]
+},
+{
+  "id": 40,
+  "type": "office",
+  "category": "Administration",
+  "title": "IT Support Cell",
+  "keywords": [
+    "it support",
+    "technical support",
+    "portal issue",
+    "wifi issue"
+  ],
+  "aliases": [
+    "Technical Support"
+  ],
+  "examples": [
+    "Samvidha login problem.",
+    "Wi-Fi not working."
+  ],
+  "data": {
+    "supports": [
+      "Portal Issues",
+      "Technical Problems",
+      "Network Assistance"
+    ]
+  },
+  "answer": "The IT Support Cell assists students with technical issues related to institutional digital services and campus IT infrastructure.",
+  "priority": 95,
+  "verified": true,
+  "source": "Official IARE",
+  "related_ids": [27]
+},
+{
+  "id": 41,
+  "type": "academic_rule",
+  "category": "Attendance",
+  "title": "Minimum Attendance Requirement",
+  "keywords": [
+    "attendance",
+    "minimum attendance",
+    "75 attendance",
+    "attendance percentage",
+    "attendance criteria"
+  ],
+  "aliases": [
+    "attendance rule",
+    "attendance requirement"
+  ],
+  "examples": [
+    "How much attendance is required?",
+    "Minimum attendance?",
+    "Can I write exams with 70% attendance?"
+  ],
+  "data": {
+    "required_percentage": 75
+  },
+  "answer": "Students are generally required to maintain at least 75% attendance to be eligible for end-semester examinations. Any relaxation, if applicable, is governed by the college rules.",
+  "priority": 100,
+  "verified": true,
+  "source": "Academic Regulations",
+  "related_ids": [42,43,44]
+},
+{
+  "id": 42,
+  "type": "academic_rule",
+  "category": "Attendance",
+  "title": "Attendance Shortage",
+  "keywords": [
+    "attendance shortage",
+    "low attendance",
+    "less attendance"
+  ],
+  "aliases": [
+    "attendance deficient"
+  ],
+  "examples": [
+    "My attendance is below 75%.",
+    "Attendance shortage."
+  ],
+  "data": {},
+  "answer": "Students with attendance below the prescribed requirement may become ineligible for examinations unless relief is granted according to institutional regulations.",
+  "priority": 100,
+  "verified": true,
+  "source": "Academic Regulations",
+  "related_ids": [41]
+},
+{
+  "id": 43,
+  "type": "academic_rule",
+  "category": "Attendance",
+  "title": "Attendance Calculation",
+  "keywords": [
+    "attendance calculation",
+    "attendance formula",
+    "calculate attendance"
+  ],
+  "aliases": [],
+  "examples": [
+    "How is attendance calculated?"
+  ],
+  "data": {
+    "formula": "(Classes Attended ÷ Classes Conducted) × 100"
+  },
+  "answer": "Attendance percentage is calculated using: (Classes Attended ÷ Classes Conducted) × 100.",
+  "priority": 95,
+  "verified": true,
+  "source": "Academic Regulations",
+  "related_ids": [41]
+},
+{
+  "id": 44,
+  "type": "academic_rule",
+  "category": "Attendance",
+  "title": "Attendance Monitoring",
+  "keywords": [
+    "attendance report",
+    "attendance tracking",
+    "attendance monitor"
+  ],
+  "aliases": [],
+  "examples": [
+    "Where can I check my attendance?"
+  ],
+  "data": {},
+  "answer": "Students should regularly monitor their attendance through the Samvidha Portal or the official student portal provided by the institution.",
+  "priority": 95,
+  "verified": true,
+  "source": "Academic Regulations",
+  "related_ids": [41]
+},
+{
+  "id": 45,
+  "type": "academic_rule",
+  "category": "Academics",
+  "title": "Credit System",
+  "keywords": [
+    "credits",
+    "credit system",
+    "course credits"
+  ],
+  "aliases": [],
+  "examples": [
+    "What are course credits?"
+  ],
+  "data": {},
+  "answer": "Each course is assigned a specific number of academic credits based on lectures, tutorials, practical sessions, and workload as defined in the curriculum.",
+  "priority": 90,
+  "verified": true,
+  "source": "Academic Regulations",
+  "related_ids": []
+},
+{
+  "id": 46,
+  "type": "academic_rule",
+  "category": "Academics",
+  "title": "Academic Regulations",
+  "keywords": [
+    "academic regulations",
+    "regulations",
+    "r18",
+    "r21",
+    "r22",
+    "rule book"
+  ],
+  "aliases": [
+    "academic handbook"
+  ],
+  "examples": [
+    "Which regulation am I under?",
+    "Where can I find academic regulations?"
+  ],
+  "data": {
+    "available_regulations": []
+  },
+  "answer": "",
+  "priority": 100,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official Academic Regulations",
+  "related_ids": [45]
+},
+{
+  "id": 47,
+  "type": "academic_rule",
+  "category": "Academics",
+  "title": "Semester System",
+  "keywords": [
+    "semester",
+    "odd semester",
+    "even semester",
+    "academic year"
+  ],
+  "aliases": [
+    "semester pattern"
+  ],
+  "examples": [
+    "How does the semester system work?"
+  ],
+  "data": {},
+  "answer": "",
+  "priority": 95,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Academic Regulations",
+  "related_ids": [46]
+},
+{
+  "id": 48,
+  "type": "academic_rule",
+  "category": "Evaluation",
+  "title": "Continuous Internal Evaluation",
+  "keywords": [
+    "cie",
+    "internal marks",
+    "continuous assessment",
+    "mid exams"
+  ],
+  "aliases": [
+    "internal assessment"
+  ],
+  "examples": [
+    "How are internal marks calculated?",
+    "What is CIE?"
+  ],
+  "data": {},
+  "answer": "",
+  "priority": 100,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Academic Regulations",
+  "related_ids": [49,50]
+},
+{
+  "id": 49,
+  "type": "academic_rule",
+  "category": "Evaluation",
+  "title": "Semester End Examination",
+  "keywords": [
+    "see",
+    "semester end exam",
+    "external exam",
+    "final exam"
+  ],
+  "aliases": [
+    "end semester examination"
+  ],
+  "examples": [
+    "What is SEE?"
+  ],
+  "data": {},
+  "answer": "",
+  "priority": 100,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Academic Regulations",
+  "related_ids": [48]
+},
+{
+  "id": 50,
+  "type": "academic_rule",
+  "category": "Evaluation",
+  "title": "Passing Criteria",
+  "keywords": [
+    "pass marks",
+    "passing criteria",
+    "minimum marks",
+    "pass percentage"
+  ],
+  "aliases": [
+    "minimum passing marks"
+  ],
+  "examples": [
+    "How many marks are required to pass?"
+  ],
+  "data": {},
+  "answer": "",
+  "priority": 100,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Academic Regulations",
+  "related_ids": [48,49]
+},
+{
+  "id": 51,
+  "type": "academic_rule",
+  "category": "Evaluation",
+  "title": "Grade Points",
+  "keywords": [
+    "grades",
+    "grade points",
+    "letter grades",
+    "sgpa grades"
+  ],
+  "aliases": [
+    "grading system"
+  ],
+  "examples": [
+    "What are the grade points?"
+  ],
+  "data": {
+    "grading_table": []
+  },
+  "answer": "",
+  "priority": 95,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Academic Regulations",
+  "related_ids": [52,53]
+},
+{
+  "id": 52,
+  "type": "academic_rule",
+  "category": "Evaluation",
+  "title": "SGPA Calculation",
+  "keywords": [
+    "sgpa",
+    "semester gpa",
+    "sgpa formula"
+  ],
+  "aliases": [
+    "semester grade point average"
+  ],
+  "examples": [
+    "How is SGPA calculated?"
+  ],
+  "data": {
+    "formula": ""
+  },
+  "answer": "",
+  "priority": 95,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Academic Regulations",
+  "related_ids": [51,53]
+},
+{
+  "id": 53,
+  "type": "academic_rule",
+  "category": "Evaluation",
+  "title": "CGPA Calculation",
+  "keywords": [
+    "cgpa",
+    "overall gpa",
+    "cgpa formula"
+  ],
+  "aliases": [
+    "cumulative grade point average"
+  ],
+  "examples": [
+    "How is CGPA calculated?"
+  ],
+  "data": {
+    "formula": ""
+  },
+  "answer": "",
+  "priority": 95,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Academic Regulations",
+  "related_ids": [51,52]
+},
+{
+  "id": 54,
+  "type": "academic_rule",
+  "category": "Academics",
+  "title": "Academic Calendar",
+  "keywords": [
+    "academic calendar",
+    "calendar",
+    "semester schedule",
+    "important dates"
+  ],
+  "aliases": [
+    "college calendar"
+  ],
+  "examples": [
+    "Where can I find the academic calendar?"
+  ],
+  "data": {},
+  "answer": "",
+  "priority": 95,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Official Academic Calendar",
+  "related_ids": [47]
+},
+{
+  "id": 55,
+  "type": "academic_rule",
+  "category": "Academics",
+  "title": "Course Registration",
+  "keywords": [
+    "course registration",
+    "register subjects",
+    "subject registration"
+  ],
+  "aliases": [
+    "subject enrollment"
+  ],
+  "examples": [
+    "How do I register for subjects?"
+  ],
+  "data": {},
+  "answer": "",
+  "priority": 90,
+  "verified": false,
+  "status": "needs_verification",
+  "source": "Academic Regulations",
+  "related_ids": [46]
+},
+{
+  "id": 57,
+  "type": "samvidha_portal",
+  "category": "Student Portal",
+  "title": "Samvidha Portal",
+
+  "keywords": [
+    "samvidha",
+    "student portal",
+    "portal",
+    "iare portal",
+    "samvidha portal",
+    "login",
+    "student login",
+    "erp",
+    "college portal"
+  ],
+
+  "aliases": [
+    "IARE Samvidha",
+    "Student ERP",
+    "Student Portal"
+  ],
+
+  "examples": [
+    "What is Samvidha?",
+    "How do I login to Samvidha?",
+    "Forgot my password.",
+    "Attendance not updated.",
+    "Where are my results?",
+    "Where is my timetable?",
+    "How do I download my hall ticket?",
+    "How do I update my profile?"
+  ],
+
+  "overview": {
+    "description": "Samvidha is the official student academic portal of IARE. It provides students with access to academic records, attendance, examination details, timetable, profile information and other institutional services.",
+
+    "official": true,
+
+    "available_to": [
+      "Students",
+      "Faculty",
+      "Administration"
+    ]
+  },
+
+  "modules": {
+
+    "dashboard": {
+      "description": "Displays the student's academic summary."
+    },
+
+    "profile": {
+      "description": "Personal information and academic profile."
+    },
+
+    "attendance": {
+      "description": "Subject-wise and overall attendance."
+    },
+
+    "timetable": {
+      "description": "Weekly class timetable."
+    },
+
+    "results": {
+      "description": "Semester examination results."
+    },
+
+    "internal_marks": {
+      "description": "Continuous Internal Evaluation (CIE) marks."
+    },
+
+    "hall_ticket": {
+      "description": "Hall ticket download when available."
+    },
+
+    "fee_details": {
+      "description": "Fee payment status and receipts."
+    },
+
+    "academic_calendar": {
+      "description": "Important academic dates."
+    },
+
+    "course_registration": {
+      "description": "Course enrollment and registration."
+    },
+
+    "notifications": {
+      "description": "Official student announcements."
+    },
+
+    "documents": {
+      "description": "Academic documents and downloads."
+    }
+  },
+
+  "common_issues": [
+
+    {
+      "problem": "Unable to login",
+      "possible_reasons": [
+        "Incorrect credentials",
+        "Password expired",
+        "Portal maintenance",
+        "Network issue"
+      ],
+      "solution": ""
+    },
+
+    {
+      "problem": "Attendance not updated",
+      "possible_reasons": [
+        "Faculty not yet uploaded attendance",
+        "Processing delay"
+      ],
+      "solution": ""
+    },
+
+    {
+      "problem": "Internal marks not visible",
+      "possible_reasons": [
+        "Marks not published",
+        "Faculty verification pending"
+      ],
+      "solution": ""
+    },
+
+    {
+      "problem": "Results not showing",
+      "possible_reasons": [
+        "Results not yet released",
+        "Temporary portal issue"
+      ],
+      "solution": ""
+    }
+
+  ],
+
+  "features": [
+
+    "Student Dashboard",
+
+    "Attendance",
+
+    "Timetable",
+
+    "Internal Marks",
+
+    "Semester Results",
+
+    "Hall Tickets",
+
+    "Academic Calendar",
+
+    "Notifications",
+
+    "Fee Details",
+
+    "Course Registration",
+
+    "Profile Management"
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "What is Samvidha?",
+      "answer": "Samvidha is the official student academic portal of IARE."
+    },
+
+    {
+      "question": "How do I login?",
+      "answer": ""
+    },
+
+    {
+      "question": "Forgot password.",
+      "answer": ""
+    },
+
+    {
+      "question": "Attendance is wrong.",
+      "answer": ""
+    },
+
+    {
+      "question": "Marks are missing.",
+      "answer": ""
+    },
+
+    {
+      "question": "Results not available.",
+      "answer": ""
+    },
+
+    {
+      "question": "Timetable not showing.",
+      "answer": ""
+    }
+
+  ],
+
+  "related_ids": [
+    41,
+    43,
+    48,
+    49,
+    54,
+    56
+  ],
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "Official Samvidha Portal"
+},
+{
+  "id": 57,
+  "type": "student_platform",
+  "category": "Digital Services",
+  "title": "Samvidha Platform",
+
+  "keywords": [
+    "samvidha",
+    "samvidha iare",
+    "iare app",
+    "student portal",
+    "portal",
+    "attendance",
+    "results",
+    "cgpa",
+    "sgpa",
+    "lab records",
+    "resourcebase",
+    "peer finder",
+    "anonymous chat",
+    "exam central",
+    "notifications"
+  ],
+
+  "aliases": [
+    "Samvidha",
+    "Samvidha IARE",
+    "Student Portal",
+    "IARE App"
+  ],
+
+  "description": "The Samvidha Platform includes the official IARE student portal and the Samvidha IARE mobile application, providing students with academic information, analytics, tools, and student services.",
+
+  "sections": {
+
+    "official_portal": {
+      "description": "Official academic portal provided by IARE.",
+
+      "features": [
+        "Student Profile",
+        "Attendance",
+        "Internal Marks",
+        "Semester Results",
+        "Hall Tickets",
+        "Timetable",
+        "Academic Calendar",
+        "Course Registration",
+        "Fee Details",
+        "Notifications"
+      ]
+    },
+
+    "samvidha_iare_app": {
+
+      "description": "Student companion application developed for IARE students.",
+
+      "features": [
+
+        "Attendance Analytics",
+
+        "Subject-wise Attendance",
+
+        "Overall Attendance",
+
+        "Attendance Predictions",
+
+        "Bunk Calculator",
+
+        "SGPA Calculator",
+
+        "CGPA Calculator",
+
+        "AI Chat Assistant",
+
+        "ResourceBase Integration",
+
+        "Lab Record Downloads",
+
+        "Notes",
+
+        "PYQs",
+
+        "Timetable Widget",
+
+        "Exam Central",
+
+        "Hall Ticket Quick Access",
+
+        "Results Quick Access",
+
+        "Lost and Found",
+
+        "Anonymous Chat",
+
+        "Peer Finder",
+
+        "Student Alerts",
+
+        "Faculty Directory",
+
+        "Department Information",
+
+        "Important Links",
+
+        "Academic Updates",
+
+        "Campus Notices"
+      ]
+    }
+  },
+
+  "faq": [],
+
+  "priority": 100,
+  "verified": true,
+  "related_ids": []
+},
+{
+  "id": 58,
+  "type": "attendance_system",
+  "category": "Academics",
+  "title": "Attendance Management System",
+
+  "keywords": [
+    "attendance",
+    "attendance percentage",
+    "overall attendance",
+    "subject attendance",
+    "daily attendance",
+    "monthly attendance",
+    "classes attended",
+    "classes conducted",
+    "present",
+    "absent",
+    "attendance report",
+    "attendance analytics",
+    "attendance graph",
+    "attendance shortage",
+    "minimum attendance",
+    "attendance status",
+    "attendance calculator",
+    "bunk calculator"
+  ],
+
+  "aliases": [
+    "Attendance",
+    "Attendance Portal",
+    "Attendance Analytics"
+  ],
+
+  "description": "Complete attendance management module used by students to monitor attendance, eligibility, trends, and analytics.",
+
+  "sections": {
+
+    "overview": {
+      "description": "Displays subject-wise and overall attendance."
+    },
+
+    "overall_attendance": {
+      "description": "Overall attendance percentage across all registered subjects."
+    },
+
+    "subject_attendance": {
+      "description": "Attendance percentage for each individual subject."
+    },
+
+    "daily_attendance": {
+      "description": "Daily attendance updates."
+    },
+
+    "attendance_history": {
+      "description": "Previous attendance records."
+    },
+
+    "attendance_statistics": {
+      "description": "Attendance analytics including present, absent, conducted classes and trends."
+    },
+
+    "attendance_prediction": {
+      "description": "Predict future attendance percentage based on planned attendance."
+    },
+
+    "bunk_calculator": {
+      "description": "Calculates how many future classes can be missed while maintaining a target attendance."
+    },
+
+    "safe_percentage": {
+      "description": "Displays safe attendance margin."
+    },
+
+    "warning_system": {
+      "description": "Warns students when attendance is approaching the minimum requirement."
+    }
+
+  },
+
+  "calculations": {
+
+    "attendance_formula": "(Attended Classes / Conducted Classes) × 100",
+
+    "prediction_formula": "Based on future attended and conducted classes.",
+
+    "bunk_formula": "Calculated using target attendance percentage."
+  },
+
+  "features": [
+
+    "Overall Attendance",
+
+    "Subject-wise Attendance",
+
+    "Daily Updates",
+
+    "Attendance Analytics",
+
+    "Attendance Trends",
+
+    "Attendance Prediction",
+
+    "Bunk Calculator",
+
+    "Safe Attendance Indicator",
+
+    "Low Attendance Warning",
+
+    "Attendance History"
+
+  ],
+
+  "common_questions": [
+
+    "What is my attendance?",
+
+    "How much attendance do I have?",
+
+    "How many classes can I bunk?",
+
+    "Can I maintain 75% attendance?",
+
+    "Why did my attendance decrease?",
+
+    "Attendance is not updated.",
+
+    "Attendance calculation formula.",
+
+    "Subject-wise attendance.",
+
+    "Overall attendance.",
+
+    "Attendance graph."
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "How is attendance calculated?",
+      "answer": "Attendance percentage is calculated as (Classes Attended ÷ Classes Conducted) × 100."
+    },
+
+    {
+      "question": "Attendance not updated.",
+      "answer": ""
+    },
+
+    {
+      "question": "Attendance suddenly decreased.",
+      "answer": ""
+    },
+
+    {
+      "question": "Can I still maintain the required attendance?",
+      "answer": ""
+    },
+
+    {
+      "question": "How many classes can I bunk?",
+      "answer": ""
+    }
+
+  ],
+
+  "future_features": [
+
+    "Attendance Notifications",
+
+    "Attendance Forecast",
+
+    "Monthly Reports",
+
+    "Faculty-wise Attendance",
+
+    "Calendar View",
+
+    "AI Suggestions"
+
+  ],
+
+  "priority": 100,
+
+  "verified": true,
+
+  "source": "Samvidha Platform",
+
+  "related_ids": [
+    41,
+    42,
+    43,
+    44,
+    57
+  ]
+},
+{
+  "id": 59,
+  "type": "academic_results",
+  "category": "Academics",
+  "title": "Results & Academic Performance",
+
+  "keywords": [
+    "results",
+    "result",
+    "semester result",
+    "exam result",
+    "marks",
+    "grades",
+    "grade sheet",
+    "sgpa",
+    "cgpa",
+    "gpa",
+    "performance",
+    "backlog",
+    "failed subject",
+    "pass",
+    "result portal",
+    "marks memo",
+    "transcript",
+    "credits earned"
+  ],
+
+  "aliases": [
+    "Results",
+    "Semester Results",
+    "Academic Performance",
+    "Marks"
+  ],
+
+  "description": "Provides complete information related to semester results, grades, GPA calculations, academic performance tracking and result analysis.",
+
+  "sections": {
+
+    "semester_results": {
+      "description": "Displays semester-wise examination results."
+    },
+
+    "subject_results": {
+      "description": "Displays marks and grade obtained in each subject."
+    },
+
+    "sgpa": {
+      "description": "Semester Grade Point Average."
+    },
+
+    "cgpa": {
+      "description": "Cumulative Grade Point Average."
+    },
+
+    "credits": {
+      "description": "Earned and pending academic credits."
+    },
+
+    "grade_sheet": {
+      "description": "Semester grade sheet."
+    },
+
+    "marks_memo": {
+      "description": "Official marks memo issued after publication of results."
+    },
+
+    "performance_analysis": {
+      "description": "Performance comparison across semesters."
+    },
+
+    "backlog_status": {
+      "description": "Pending and cleared backlog subjects."
+    },
+
+    "academic_progress": {
+      "description": "Overall academic progress throughout the degree."
+    }
+
+  },
+
+  "features": [
+
+    "Semester Results",
+
+    "Subject-wise Marks",
+
+    "Grade Sheet",
+
+    "SGPA",
+
+    "CGPA",
+
+    "Credits Earned",
+
+    "Performance Analysis",
+
+    "Semester Comparison",
+
+    "Academic Progress",
+
+    "Result History"
+
+  ],
+
+  "analytics": {
+
+    "highest_sgpa": true,
+
+    "lowest_sgpa": true,
+
+    "semester_comparison": true,
+
+    "credit_analysis": true,
+
+    "subject_performance": true,
+
+    "cgpa_growth": true
+
+  },
+
+  "common_questions": [
+
+    "When will results be released?",
+
+    "My result is not showing.",
+
+    "How is SGPA calculated?",
+
+    "How is CGPA calculated?",
+
+    "Where is my marks memo?",
+
+    "Where can I download my grade sheet?",
+
+    "How many backlogs do I have?",
+
+    "How many credits have I earned?",
+
+    "My result is incorrect.",
+
+    "How can I improve my CGPA?"
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "Result not available.",
+      "answer": ""
+    },
+
+    {
+      "question": "SGPA calculation.",
+      "answer": ""
+    },
+
+    {
+      "question": "CGPA calculation.",
+      "answer": ""
+    },
+
+    {
+      "question": "Grade sheet download.",
+      "answer": ""
+    },
+
+    {
+      "question": "Marks memo.",
+      "answer": ""
+    },
+
+    {
+      "question": "Result correction.",
+      "answer": ""
+    }
+
+  ],
+
+  "future_features": [
+
+    "AI Result Analysis",
+
+    "Expected SGPA Prediction",
+
+    "CGPA Goal Planner",
+
+    "Placement Eligibility Checker",
+
+    "Semester Rank Prediction",
+
+    "Performance Insights"
+
+  ],
+
+  "priority": 100,
+
+  "verified": true,
+
+  "source": "Samvidha Platform",
+
+  "related_ids": [
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    56,
+    57,
+    58
+  ]
+},
+{
+  "id": 60,
+  "type": "student_documents",
+  "category": "Student Services",
+  "title": "Student Certificates & Documents",
+
+  "keywords": [
+    "certificate",
+    "bonafide",
+    "study certificate",
+    "conduct certificate",
+    "tc",
+    "transfer certificate",
+    "migration certificate",
+    "provisional certificate",
+    "degree certificate",
+    "marks memo",
+    "grade sheet",
+    "transcript",
+    "noc",
+    "student documents",
+    "document request"
+  ],
+
+  "aliases": [
+    "Certificates",
+    "Student Certificates",
+    "Documents",
+    "Academic Documents"
+  ],
+
+  "description": "Provides information about certificates, official documents, request procedures, issuance status, verification and document downloads.",
+
+  "sections": {
+
+    "bonafide_certificate": {
+      "description": "Certificate confirming that the student is currently studying in the institution.",
+      "required_for": [
+        "Scholarships",
+        "Bank Loans",
+        "Passport",
+        "Internships",
+        "Government Applications"
+      ],
+      "application_method": "",
+      "processing_time": "",
+      "verified": false
+    },
+
+    "study_certificate": {
+      "description": "Official certificate confirming the student's academic enrollment.",
+      "application_method": "",
+      "verified": false
+    },
+
+    "conduct_certificate": {
+      "description": "Certificate describing the student's conduct in the institution.",
+      "application_method": "",
+      "verified": false
+    },
+
+    "transfer_certificate": {
+      "description": "Issued when a student leaves the institution.",
+      "application_method": "",
+      "verified": false
+    },
+
+    "migration_certificate": {
+      "description": "Certificate required for migration to another university.",
+      "application_method": "",
+      "verified": false
+    },
+
+    "provisional_certificate": {
+      "description": "Temporary certificate issued after successful completion of the degree.",
+      "application_method": "",
+      "verified": false
+    },
+
+    "degree_certificate": {
+      "description": "Official degree certificate awarded after graduation.",
+      "issued_by": "",
+      "verified": false
+    },
+
+    "marks_memo": {
+      "description": "Semester-wise marks memo.",
+      "download_available": "",
+      "verified": false
+    },
+
+    "grade_sheet": {
+      "description": "Semester grade sheet containing grades and credits.",
+      "verified": false
+    },
+
+    "transcript": {
+      "description": "Consolidated academic record.",
+      "application_method": "",
+      "verified": false
+    },
+
+    "noc": {
+      "description": "No Objection Certificate.",
+      "application_method": "",
+      "verified": false
+    }
+
+  },
+
+  "services": [
+
+    "Certificate Request",
+
+    "Application Status",
+
+    "Document Verification",
+
+    "Download Documents",
+
+    "Print Documents",
+
+    "Official Verification"
+
+  ],
+
+  "common_questions": [
+
+    "How do I get a Bonafide Certificate?",
+
+    "Need a Study Certificate.",
+
+    "How do I apply for a TC?",
+
+    "Need a Conduct Certificate.",
+
+    "How do I get a Transcript?",
+
+    "Where can I download my Marks Memo?",
+
+    "Degree Certificate process.",
+
+    "Migration Certificate.",
+
+    "Certificate verification.",
+
+    "How long does it take to issue a certificate?"
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "How do I apply for a Bonafide Certificate?",
+      "answer": ""
+    },
+
+    {
+      "question": "Where can I get my Marks Memo?",
+      "answer": ""
+    },
+
+    {
+      "question": "How do I obtain a Transcript?",
+      "answer": ""
+    },
+
+    {
+      "question": "Need a Transfer Certificate.",
+      "answer": ""
+    },
+
+    {
+      "question": "Certificate application status.",
+      "answer": ""
+    }
+
+  ],
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "Student Section",
+
+  "related_ids": [
+    35,
+    56,
+    59
+  ]
+},
+{
+  "id": 61,
+  "type": "fee_management",
+  "category": "Student Services",
+  "title": "Fee Management & Payments",
+
+  "keywords": [
+    "fees",
+    "fee",
+    "tuition fee",
+    "college fee",
+    "payment",
+    "fee payment",
+    "fee receipt",
+    "receipt",
+    "challan",
+    "online payment",
+    "pending fee",
+    "dues",
+    "hostel fee",
+    "transport fee",
+    "exam fee",
+    "semester fee"
+  ],
+
+  "aliases": [
+    "Fee Portal",
+    "Accounts Section",
+    "Fee Details",
+    "Payments"
+  ],
+
+  "description": "Provides complete information about student fee payments, receipts, dues, payment history, scholarships, refunds and financial services.",
+
+  "sections": {
+
+    "tuition_fee": {
+      "description": "Semester tuition fee details."
+    },
+
+    "exam_fee": {
+      "description": "Examination registration fee."
+    },
+
+    "hostel_fee": {
+      "description": "Hostel accommodation charges."
+    },
+
+    "transport_fee": {
+      "description": "College transport charges."
+    },
+
+    "online_payment": {
+      "description": "Online fee payment services."
+    },
+
+    "offline_payment": {
+      "description": "Fee payment through Accounts Section."
+    },
+
+    "payment_history": {
+      "description": "Complete payment history."
+    },
+
+    "fee_receipt": {
+      "description": "Download and print fee receipts."
+    },
+
+    "pending_dues": {
+      "description": "Outstanding dues and pending payments."
+    },
+
+    "refunds": {
+      "description": "Refund status and procedures."
+    },
+
+    "financial_assistance": {
+      "description": "Information regarding fee concessions and financial assistance."
+    }
+
+  },
+
+  "features": [
+
+    "Fee Details",
+
+    "Payment Status",
+
+    "Online Payment",
+
+    "Fee Receipts",
+
+    "Payment History",
+
+    "Pending Dues",
+
+    "Refund Tracking",
+
+    "Fee Notifications"
+
+  ],
+
+  "common_questions": [
+
+    "How much fee should I pay?",
+
+    "Where can I pay my fee?",
+
+    "Can I pay online?",
+
+    "Download fee receipt.",
+
+    "Payment failed.",
+
+    "Fee payment not updated.",
+
+    "Pending dues.",
+
+    "Refund status.",
+
+    "Exam fee payment.",
+
+    "Transport fee."
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "How can I pay my semester fee?",
+      "answer": ""
+    },
+
+    {
+      "question": "Payment failed but money was deducted.",
+      "answer": ""
+    },
+
+    {
+      "question": "How do I download my fee receipt?",
+      "answer": ""
+    },
+
+    {
+      "question": "Where can I see pending dues?",
+      "answer": ""
+    },
+
+    {
+      "question": "When will payment status update?",
+      "answer": ""
+    }
+
+  ],
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "Accounts Section",
+
+  "related_ids": [
+    33,
+    35,
+    57,
+    60
+  ]
+},
+{
+  "id": 62,
+  "type": "scholarships",
+  "category": "Student Services",
+  "title": "Scholarships & Financial Assistance",
+
+  "keywords": [
+    "scholarship",
+    "scholarships",
+    "fee reimbursement",
+    "epass",
+    "telangana scholarship",
+    "government scholarship",
+    "financial assistance",
+    "tuition reimbursement",
+    "income certificate",
+    "scholarship status",
+    "scholarship application",
+    "renewal",
+    "fresh application",
+    "nsp",
+    "state scholarship",
+    "minority scholarship",
+    "merit scholarship"
+  ],
+
+  "aliases": [
+    "Scholarship Portal",
+    "Financial Aid",
+    "Fee Reimbursement",
+    "Student Scholarships"
+  ],
+
+  "description": "Provides information about scholarships, fee reimbursement schemes, financial assistance, eligibility, required documents, application process, renewal, and scholarship status.",
+
+  "sections": {
+
+    "government_scholarships": {
+      "description": "Scholarships offered by Central and State Governments.",
+      "verified": false
+    },
+
+    "college_scholarships": {
+      "description": "Scholarships or fee concessions offered by the institution.",
+      "verified": false
+    },
+
+    "fee_reimbursement": {
+      "description": "Information about tuition fee reimbursement schemes.",
+      "verified": false
+    },
+
+    "national_scholarship_portal": {
+      "description": "National Scholarship Portal (NSP) related information.",
+      "verified": false
+    },
+
+    "state_scholarships": {
+      "description": "State government scholarship schemes.",
+      "verified": false
+    },
+
+    "eligibility": {
+      "description": "Eligibility criteria for scholarship applications.",
+      "verified": false
+    },
+
+    "required_documents": {
+      "description": "Documents commonly required for scholarship applications.",
+      "documents": [
+        "Aadhaar Card",
+        "Income Certificate",
+        "Caste Certificate (if applicable)",
+        "Bonafide Certificate",
+        "Bank Passbook",
+        "Passport Size Photograph"
+      ],
+      "verified": false
+    },
+
+    "application_process": {
+      "description": "Steps involved in applying for scholarships.",
+      "verified": false
+    },
+
+    "renewal": {
+      "description": "Scholarship renewal process.",
+      "verified": false
+    },
+
+    "status_tracking": {
+      "description": "Track scholarship application status.",
+      "verified": false
+    }
+
+  },
+
+  "features": [
+
+    "Scholarship Information",
+
+    "Eligibility Guide",
+
+    "Required Documents",
+
+    "Application Process",
+
+    "Renewal Guide",
+
+    "Status Tracking",
+
+    "Financial Assistance",
+
+    "Important Notifications"
+
+  ],
+
+  "common_questions": [
+
+    "How do I apply for a scholarship?",
+
+    "What documents are required?",
+
+    "Who is eligible?",
+
+    "Scholarship not credited.",
+
+    "Scholarship status.",
+
+    "Renew scholarship.",
+
+    "Fee reimbursement.",
+
+    "Bank account seeding.",
+
+    "Bonafide for scholarship.",
+
+    "Income certificate required?"
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "How do I apply for a scholarship?",
+      "answer": ""
+    },
+
+    {
+      "question": "What documents are required?",
+      "answer": ""
+    },
+
+    {
+      "question": "Scholarship status is pending.",
+      "answer": ""
+    },
+
+    {
+      "question": "Scholarship amount not received.",
+      "answer": ""
+    },
+
+    {
+      "question": "How do I renew my scholarship?",
+      "answer": ""
+    }
+
+  ],
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "Scholarship Cell / Government Scholarship Portals",
+
+  "related_ids": [
+    35,
+    60,
+    61
+  ]
+},
+{
+  "id": 63,
+  "type": "library_services",
+  "category": "Student Services",
+  "title": "Central Library & Digital Resources",
+
+  "keywords": [
+    "library",
+    "books",
+    "book issue",
+    "book return",
+    "renew book",
+    "library card",
+    "digital library",
+    "ebooks",
+    "journals",
+    "ieee",
+    "springer",
+    "sciencedirect",
+    "library timing",
+    "reading hall",
+    "reference books",
+    "opac",
+    "book search",
+    "library fine"
+  ],
+
+  "aliases": [
+    "Central Library",
+    "Digital Library",
+    "Library Portal",
+    "Library Services"
+  ],
+
+  "description": "Provides information about library facilities, digital resources, book issue and return, membership, online resources, reading spaces, and library policies.",
+
+  "sections": {
+
+    "about_library": {
+      "description": "Overview of the college library and its services.",
+      "verified": false
+    },
+
+    "library_timings": {
+      "description": "Working hours of the library.",
+      "verified": false
+    },
+
+    "membership": {
+      "description": "Library membership eligibility and registration.",
+      "verified": false
+    },
+
+    "book_issue": {
+      "description": "Procedure to issue library books.",
+      "verified": false
+    },
+
+    "book_return": {
+      "description": "Procedure to return issued books.",
+      "verified": false
+    },
+
+    "book_renewal": {
+      "description": "Book renewal procedure.",
+      "verified": false
+    },
+
+    "fine_policy": {
+      "description": "Late return fine policy.",
+      "verified": false
+    },
+
+    "digital_library": {
+      "description": "Access to e-books, journals, and online databases.",
+      "verified": false
+    },
+
+    "reference_section": {
+      "description": "Reference books and academic materials.",
+      "verified": false
+    },
+
+    "reading_hall": {
+      "description": "Reading room facilities.",
+      "verified": false
+    },
+
+    "newspapers_magazines": {
+      "description": "Daily newspapers and magazines available in the library.",
+      "verified": false
+    },
+
+    "research_resources": {
+      "description": "Research databases and academic journals.",
+      "verified": false
+    }
+
+  },
+
+  "services": [
+
+    "Book Search",
+
+    "Book Issue",
+
+    "Book Return",
+
+    "Book Renewal",
+
+    "Digital Library",
+
+    "E-Books",
+
+    "Research Journals",
+
+    "Reading Hall",
+
+    "Reference Books",
+
+    "Previous Question Papers",
+
+    "Project Reports",
+
+    "Library Assistance"
+
+  ],
+
+  "digital_resources": [
+
+    "E-Books",
+
+    "E-Journals",
+
+    "IEEE",
+
+    "Springer",
+
+    "ScienceDirect",
+
+    "NPTEL",
+
+    "DELNET",
+
+    "National Digital Library"
+
+  ],
+
+  "common_questions": [
+
+    "Library timings?",
+
+    "How many books can I issue?",
+
+    "How do I renew a book?",
+
+    "Lost a library book.",
+
+    "Library fine.",
+
+    "Digital library login.",
+
+    "Previous year question papers.",
+
+    "Research journals.",
+
+    "Reading hall availability.",
+
+    "Library membership."
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "What are the library timings?",
+      "answer": ""
+    },
+
+    {
+      "question": "How many books can I issue?",
+      "answer": ""
+    },
+
+    {
+      "question": "How do I renew a book?",
+      "answer": ""
+    },
+
+    {
+      "question": "I lost a library book.",
+      "answer": ""
+    },
+
+    {
+      "question": "How can I access the digital library?",
+      "answer": ""
+    }
+
+  ],
+
+  "response_guidance": {
+
+    "if_timing_requested": "Provide the official library timings if available; otherwise advise the student to check the latest notice or contact the library.",
+
+    "if_book_missing": "Suggest checking the library catalogue or asking the library staff.",
+
+    "if_login_problem": "Recommend verifying institutional credentials and contacting the library if access issues continue.",
+
+    "if_unknown": "Do not guess library policies. Recommend contacting the Central Library."
+  },
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "Central Library",
+
+  "related_ids": [
+    21,
+    37,
+    57
+  ]
+},
+{
+  "id": 64,
+  "type": "transport_services",
+  "category": "Student Services",
+  "title": "College Transport Services",
+
+  "keywords": [
+    "transport",
+    "bus",
+    "college bus",
+    "bus route",
+    "bus number",
+    "boarding point",
+    "bus timing",
+    "pickup",
+    "drop",
+    "transport fee",
+    "bus pass",
+    "driver",
+    "route map",
+    "transport office",
+    "bus tracking",
+    "bus stop"
+  ],
+
+  "aliases": [
+    "Transport",
+    "Bus Services",
+    "College Bus",
+    "Transport Department"
+  ],
+
+  "description": "Provides information about college transportation, bus routes, boarding points, timings, transport fees, registration, transport office and transport-related services.",
+
+  "sections": {
+
+    "overview": {
+      "description": "College transportation facilities for students and staff."
+    },
+
+    "bus_routes": {
+      "description": "Available bus routes and route information.",
+      "routes": []
+    },
+
+    "boarding_points": {
+      "description": "Student pickup and drop locations.",
+      "locations": []
+    },
+
+    "bus_timings": {
+      "description": "Morning and evening bus schedules.",
+      "verified": false
+    },
+
+    "registration": {
+      "description": "Transport registration procedure.",
+      "verified": false
+    },
+
+    "transport_fee": {
+      "description": "Transport fee structure.",
+      "verified": false
+    },
+
+    "bus_pass": {
+      "description": "Transport pass issue and renewal.",
+      "verified": false
+    },
+
+    "route_change": {
+      "description": "Procedure for changing bus routes.",
+      "verified": false
+    },
+
+    "special_requests": {
+      "description": "Requests related to new stops or transport issues.",
+      "verified": false
+    },
+
+    "emergency_contact": {
+      "description": "Transport office emergency support.",
+      "verified": false
+    }
+
+  },
+
+  "features": [
+
+    "Bus Route Information",
+
+    "Pickup Points",
+
+    "Drop Points",
+
+    "Bus Timetable",
+
+    "Transport Registration",
+
+    "Transport Fee Details",
+
+    "Route Change Requests",
+
+    "Transport Notifications"
+
+  ],
+
+  "common_questions": [
+
+    "Which bus goes to my area?",
+
+    "Where is my boarding point?",
+
+    "Bus timings.",
+
+    "Transport fee.",
+
+    "How do I register for transport?",
+
+    "Can I change my bus route?",
+
+    "Bus not arrived.",
+
+    "Missed the bus.",
+
+    "Bus pass renewal.",
+
+    "Transport office location."
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "How do I register for transport?",
+      "answer": ""
+    },
+
+    {
+      "question": "Can I change my bus route?",
+      "answer": ""
+    },
+
+    {
+      "question": "What are the bus timings?",
+      "answer": ""
+    },
+
+    {
+      "question": "Where is the transport office?",
+      "answer": ""
+    },
+
+    {
+      "question": "How do I renew my transport pass?",
+      "answer": ""
+    }
+
+  ],
+
+  "response_guidance": {
+
+    "if_route_requested": "Ask the student for their area or boarding location before suggesting a route.",
+
+    "if_bus_number_unknown": "Recommend contacting the Transport Office if the route is not available in memory.",
+
+    "if_timing_unknown": "Do not guess bus timings. Advise checking the latest transport notice.",
+
+    "if_emergency": "Direct the student to contact the Transport Office immediately."
+  },
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "Transport Office",
+
+  "related_ids": [
+    23,
+    38,
+    61
+  ]
+},
+{
+  "id": 65,
+  "type": "hostel_services",
+  "category": "Student Services",
+  "title": "Hostel & Accommodation Services",
+
+  "keywords": [
+    "hostel",
+    "boys hostel",
+    "girls hostel",
+    "accommodation",
+    "room",
+    "hostel fee",
+    "mess",
+    "mess fee",
+    "warden",
+    "hostel rules",
+    "hostel admission",
+    "room allotment",
+    "vacate hostel",
+    "hostel timings",
+    "hostel facilities"
+  ],
+
+  "aliases": [
+    "College Hostel",
+    "Hostel Office",
+    "Accommodation"
+  ],
+
+  "description": "Provides information about hostel admissions, accommodation, room allotment, mess facilities, fees, rules, wardens, and hostel services.",
+
+  "sections": {
+
+    "overview": {
+      "description": "Hostel accommodation for eligible students."
+    },
+
+    "hostel_admission": {
+      "description": "Hostel admission procedure.",
+      "verified": false
+    },
+
+    "eligibility": {
+      "description": "Eligibility requirements for hostel accommodation.",
+      "verified": false
+    },
+
+    "room_allotment": {
+      "description": "Room allocation process.",
+      "verified": false
+    },
+
+    "hostel_fee": {
+      "description": "Hostel fee details.",
+      "verified": false
+    },
+
+    "mess": {
+      "description": "Mess services, food timings and meal information.",
+      "verified": false
+    },
+
+    "hostel_rules": {
+      "description": "Rules and regulations applicable to hostel residents.",
+      "verified": false
+    },
+
+    "leave_permission": {
+      "description": "Procedure for obtaining hostel leave permission.",
+      "verified": false
+    },
+
+    "maintenance": {
+      "description": "Maintenance and complaint reporting.",
+      "verified": false
+    },
+
+    "warden": {
+      "description": "Hostel warden and administration.",
+      "verified": false
+    },
+
+    "visitor_policy": {
+      "description": "Visitor rules and timings.",
+      "verified": false
+    },
+
+    "vacating": {
+      "description": "Hostel vacating procedure.",
+      "verified": false
+    }
+
+  },
+
+  "features": [
+
+    "Hostel Registration",
+
+    "Room Allotment",
+
+    "Mess Information",
+
+    "Fee Details",
+
+    "Hostel Rules",
+
+    "Leave Requests",
+
+    "Complaint Registration",
+
+    "Maintenance Requests",
+
+    "Emergency Contacts",
+
+    "Hostel Notifications"
+
+  ],
+
+  "common_questions": [
+
+    "How do I apply for hostel?",
+
+    "Hostel fee details.",
+
+    "Room allotment.",
+
+    "Mess timings.",
+
+    "Hostel rules.",
+
+    "Leave permission.",
+
+    "Hostel complaint.",
+
+    "Need maintenance.",
+
+    "Who is my warden?",
+
+    "Visitor timings."
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "How do I apply for hostel accommodation?",
+      "answer": ""
+    },
+
+    {
+      "question": "How is the room allotted?",
+      "answer": ""
+    },
+
+    {
+      "question": "What are the hostel rules?",
+      "answer": ""
+    },
+
+    {
+      "question": "How do I request hostel leave?",
+      "answer": ""
+    },
+
+    {
+      "question": "How do I report a maintenance issue?",
+      "answer": ""
+    }
+
+  ],
+
+  "response_guidance": {
+
+    "if_room_issue": "Direct the student to contact the hostel office or warden.",
+
+    "if_fee_query": "Provide official hostel fee information if available; otherwise refer the student to the Hostel Office.",
+
+    "if_emergency": "Advise the student to immediately contact the hostel warden or hostel administration.",
+
+    "if_unknown": "Do not guess hostel policies. Recommend contacting the Hostel Office."
+  },
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "Hostel Office",
+
+  "related_ids": [
+    22,
+    39,
+    61,
+    64
+  ]
+},
+{
+  "id": 66,
+  "type": "placement_services",
+  "category": "Career Development",
+  "title": "Placements, Internships & Career Development",
+
+  "keywords": [
+    "placements",
+    "placement",
+    "campus placement",
+    "placement drive",
+    "placement cell",
+    "tpo",
+    "training and placement",
+    "career",
+    "career development",
+    "internship",
+    "internships",
+    "job",
+    "jobs",
+    "recruitment",
+    "company",
+    "campus recruitment",
+    "aptitude",
+    "coding test",
+    "technical interview",
+    "hr interview",
+    "resume",
+    "cv",
+    "placement eligibility",
+    "package",
+    "ctc",
+    "offer letter",
+    "ppo",
+    "mock interview",
+    "soft skills"
+  ],
+
+  "aliases": [
+    "Placement Cell",
+    "Career Cell",
+    "Training & Placement Office",
+    "TPO"
+  ],
+
+  "description": "Provides complete information regarding placements, internships, campus recruitment, career development, training programs, company visits, eligibility, and recruitment process.",
+
+  "sections": {
+
+    "overview": {
+      "description": "Career development and campus recruitment activities."
+    },
+
+    "placement_cell": {
+      "description": "Training & Placement Office information."
+    },
+
+    "placement_process": {
+      "description": "Overall campus recruitment process.",
+      "steps": [
+        "Company Notification",
+        "Student Registration",
+        "Eligibility Check",
+        "Aptitude Test",
+        "Technical Assessment",
+        "Technical Interview",
+        "HR Interview",
+        "Offer Release"
+      ]
+    },
+
+    "placement_eligibility": {
+      "description": "Eligibility criteria for placement drives.",
+      "verified": false
+    },
+
+    "internships": {
+      "description": "Internship opportunities and internship support.",
+      "verified": false
+    },
+
+    "training_programs": {
+      "description": "Placement training, aptitude, coding, communication and interview preparation."
+    },
+
+    "resume_support": {
+      "description": "Resume building guidance."
+    },
+
+    "mock_interviews": {
+      "description": "Mock interview sessions."
+    },
+
+    "coding_preparation": {
+      "description": "Coding practice and technical preparation."
+    },
+
+    "company_visits": {
+      "description": "Companies visiting campus."
+    },
+
+    "placement_statistics": {
+      "description": "Placement statistics and reports.",
+      "verified": false
+    },
+
+    "highest_package": {
+      "description": "Highest package offered.",
+      "verified": false
+    },
+
+    "average_package": {
+      "description": "Average placement package.",
+      "verified": false
+    },
+
+    "recruiters": {
+      "description": "Major recruiting companies.",
+      "companies": []
+    }
+
+  },
+
+  "features": [
+
+    "Placement Notifications",
+
+    "Placement Eligibility",
+
+    "Company Information",
+
+    "Placement Calendar",
+
+    "Internship Opportunities",
+
+    "Resume Builder",
+
+    "Resume Review",
+
+    "Coding Practice",
+
+    "Mock Interviews",
+
+    "Aptitude Training",
+
+    "Soft Skills Training",
+
+    "Interview Preparation",
+
+    "Placement Statistics"
+
+  ],
+
+  "common_questions": [
+
+    "Am I eligible for placements?",
+
+    "When is the next placement drive?",
+
+    "How do I register for placements?",
+
+    "Internship opportunities.",
+
+    "Resume format.",
+
+    "Top recruiting companies.",
+
+    "Highest package.",
+
+    "Average package.",
+
+    "Placement training.",
+
+    "Coding preparation."
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "How do I register for placements?",
+      "answer": ""
+    },
+
+    {
+      "question": "Who is eligible for placements?",
+      "answer": ""
+    },
+
+    {
+      "question": "Where can I upload my resume?",
+      "answer": ""
+    },
+
+    {
+      "question": "What companies visit the campus?",
+      "answer": ""
+    },
+
+    {
+      "question": "How can I prepare for placements?",
+      "answer": ""
+    }
+
+  ],
+
+  "response_guidance": {
+
+    "if_eligibility_unknown": "Refer the student to the latest Placement Cell notification.",
+
+    "if_company_query": "Provide verified company information only.",
+
+    "if_package_query": "Never estimate packages. Use official placement statistics.",
+
+    "if_resume_help": "Guide the student with resume preparation and recommend review before applying.",
+
+    "if_interview_help": "Provide interview preparation tips and direct students to placement training resources."
+  },
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "Training & Placement Office",
+
+  "related_ids": [
+    30,
+    36,
+    57,
+    59
+  ]
+},
+{
+  "id": 67,
+  "type": "academic_schedule",
+  "category": "Academics",
+  "title": "Timetable, Academic Calendar & Class Schedule",
+
+  "keywords": [
+    "timetable",
+    "time table",
+    "schedule",
+    "class schedule",
+    "today classes",
+    "today timetable",
+    "tomorrow timetable",
+    "weekly timetable",
+    "semester timetable",
+    "class timings",
+    "period timings",
+    "working day",
+    "holiday",
+    "academic calendar",
+    "calendar",
+    "mid exams",
+    "semester exams",
+    "lab timetable",
+    "room number",
+    "classroom",
+    "faculty timetable",
+    "exam schedule"
+  ],
+
+  "aliases": [
+    "Class Timetable",
+    "Academic Calendar",
+    "Schedule",
+    "Class Routine"
+  ],
+
+  "description": "Provides information related to class schedules, academic calendar, semester timelines, examination schedules, holidays, working days, laboratories, classrooms, and timetable updates.",
+
+  "sections": {
+
+    "academic_calendar": {
+      "description": "Official semester academic calendar.",
+      "verified": false
+    },
+
+    "daily_timetable": {
+      "description": "Student daily class timetable.",
+      "verified": false
+    },
+
+    "weekly_timetable": {
+      "description": "Weekly class schedule.",
+      "verified": false
+    },
+
+    "period_timings": {
+      "description": "College period timings and breaks.",
+      "verified": false
+    },
+
+    "laboratory_schedule": {
+      "description": "Laboratory class schedule.",
+      "verified": false
+    },
+
+    "classroom_information": {
+      "description": "Room numbers and classroom locations.",
+      "verified": false
+    },
+
+    "faculty_schedule": {
+      "description": "Faculty timetable information.",
+      "verified": false
+    },
+
+    "holiday_calendar": {
+      "description": "Declared holidays and vacation schedule.",
+      "verified": false
+    },
+
+    "exam_calendar": {
+      "description": "Mid and semester examination schedule.",
+      "verified": false
+    },
+
+    "special_classes": {
+      "description": "Extra classes, remedial classes and makeup classes.",
+      "verified": false
+    },
+
+    "notifications": {
+      "description": "Timetable updates and schedule changes.",
+      "verified": false
+    }
+
+  },
+
+  "features": [
+
+    "Today's Timetable",
+
+    "Tomorrow's Timetable",
+
+    "Weekly Timetable",
+
+    "Academic Calendar",
+
+    "Exam Schedule",
+
+    "Holiday Calendar",
+
+    "Lab Schedule",
+
+    "Room Information",
+
+    "Faculty Timetable",
+
+    "Schedule Change Alerts"
+
+  ],
+
+  "supported_queries": [
+
+    "Today's classes",
+
+    "Tomorrow timetable",
+
+    "Next class",
+
+    "Current period",
+
+    "Holiday tomorrow",
+
+    "When are mid exams?",
+
+    "Semester exam dates",
+
+    "Lab timing",
+
+    "Which classroom?",
+
+    "Class cancelled?"
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "How can I view today's timetable?",
+      "answer": ""
+    },
+
+    {
+      "question": "Where can I download the academic calendar?",
+      "answer": ""
+    },
+
+    {
+      "question": "Has today's timetable changed?",
+      "answer": ""
+    },
+
+    {
+      "question": "When are the semester examinations?",
+      "answer": ""
+    },
+
+    {
+      "question": "Which classroom is assigned for my class?",
+      "answer": ""
+    }
+
+  ],
+
+  "response_guidance": {
+
+    "if_branch_unknown": "Ask the student for their department, year, semester and section before providing a timetable.",
+
+    "if_schedule_missing": "Inform the student that the latest official timetable is unavailable and recommend checking Samvidha or the department notice board.",
+
+    "if_today_requested": "Use the current day to retrieve today's timetable whenever timetable data is available.",
+
+    "if_exam_dates_unknown": "Do not guess examination dates. Refer only to the official examination schedule."
+  },
+
+  "future_integrations": [
+
+    "Samvidha timetable synchronization",
+
+    "Google Calendar export",
+
+    "Automatic class reminders",
+
+    "Live timetable updates",
+
+    "Faculty timetable sync",
+
+    "Attendance prediction from timetable"
+
+  ],
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "Academic Section / Samvidha Portal",
+
+  "related_ids": [
+    57,
+    58,
+    59,
+    61,
+    66
+  ]
+},
+{
+  "id": 68,
+  "type": "faculty_directory",
+  "category": "Academics",
+  "title": "Faculty Directory & Department Contacts",
+
+  "keywords": [
+    "faculty",
+    "teacher",
+    "professor",
+    "assistant professor",
+    "associate professor",
+    "hod",
+    "head of department",
+    "mentor",
+    "class incharge",
+    "course coordinator",
+    "department",
+    "faculty email",
+    "faculty phone",
+    "staff",
+    "cabin",
+    "office",
+    "office hours",
+    "lecturer",
+    "guide",
+    "project guide"
+  ],
+
+  "aliases": [
+    "Faculty Information",
+    "Faculty Directory",
+    "Department Faculty",
+    "Teaching Staff",
+    "Staff Directory"
+  ],
+
+  "description": "Provides information about faculty members, departments, HODs, mentors, coordinators, office locations, contact details, subjects handled, and academic responsibilities.",
+
+  "sections": {
+
+    "faculty_profiles": {
+      "description": "Profiles of faculty members.",
+      "fields": [
+        "faculty_id",
+        "name",
+        "designation",
+        "department",
+        "qualification",
+        "specialization",
+        "subjects",
+        "experience",
+        "email",
+        "phone",
+        "office_location",
+        "office_hours",
+        "photo",
+        "research_interests"
+      ]
+    },
+
+    "department_heads": {
+      "description": "Head of Department details."
+    },
+
+    "class_mentors": {
+      "description": "Class mentor assignments."
+    },
+
+    "course_coordinators": {
+      "description": "Course coordinators."
+    },
+
+    "project_guides": {
+      "description": "Project supervisors and guides."
+    },
+
+    "department_contacts": {
+      "description": "Department office contact details."
+    },
+
+    "office_locations": {
+      "description": "Faculty cabins and office locations."
+    }
+
+  },
+
+  "supported_queries": [
+
+    "Who teaches DBMS?",
+
+    "Who is my mentor?",
+
+    "HOD of AIML",
+
+    "Faculty email",
+
+    "Faculty phone number",
+
+    "Cabin location",
+
+    "Office timings",
+
+    "Faculty specialization",
+
+    "Project guide",
+
+    "Course coordinator"
+
+  ],
+
+  "features": [
+
+    "Faculty Search",
+
+    "Department-wise Faculty",
+
+    "Subject-wise Faculty",
+
+    "Mentor Information",
+
+    "HOD Details",
+
+    "Office Location",
+
+    "Faculty Contact",
+
+    "Research Areas",
+
+    "Project Guide Search"
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "Who is the HOD of my department?",
+      "answer": ""
+    },
+
+    {
+      "question": "Who teaches a particular subject?",
+      "answer": ""
+    },
+
+    {
+      "question": "How can I contact a faculty member?",
+      "answer": ""
+    },
+
+    {
+      "question": "Where is the faculty cabin?",
+      "answer": ""
+    },
+
+    {
+      "question": "Who is my class mentor?",
+      "answer": ""
+    }
+
+  ],
+
+  "response_guidance": {
+
+    "if_subject_given": "Search faculty profiles by subject before asking for additional information.",
+
+    "if_department_missing": "Ask the student to specify the department.",
+
+    "if_multiple_matches": "Present all matching faculty members and ask which one they mean.",
+
+    "if_contact_missing": "Do not invent contact details. State that official contact information is unavailable.",
+
+    "if_office_unknown": "Recommend contacting the department office."
+  },
+
+  "future_integrations": [
+
+    "Faculty profile pages",
+
+    "Department websites",
+
+    "Samvidha faculty mapping",
+
+    "Faculty timetable integration",
+
+    "Research publication profiles",
+
+    "Faculty availability status"
+
+  ],
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "Departments / Faculty Directory / College Website",
+
+  "related_ids": [
+    2,
+    4,
+    57,
+    67
+  ]
+},
+{
+  "id": 69,
+  "type": "campus_facilities",
+  "category": "Campus Services",
+  "title": "Campus Facilities & Infrastructure",
+
+  "keywords": [
+    "campus",
+    "facilities",
+    "infrastructure",
+    "building",
+    "block",
+    "classroom",
+    "seminar hall",
+    "auditorium",
+    "conference hall",
+    "canteen",
+    "cafeteria",
+    "food court",
+    "parking",
+    "wifi",
+    "internet",
+    "medical room",
+    "first aid",
+    "atm",
+    "bank",
+    "stationery",
+    "xerox",
+    "photocopy",
+    "drinking water",
+    "washroom",
+    "restroom",
+    "elevator",
+    "lift",
+    "security",
+    "lost and found",
+    "campus map"
+  ],
+
+  "aliases": [
+    "Campus Services",
+    "Infrastructure",
+    "Student Facilities",
+    "College Facilities"
+  ],
+
+  "description": "Provides information about campus infrastructure, student facilities, utilities, common services, buildings, and essential amenities available within the college campus.",
+
+  "sections": {
+
+    "academic_blocks": {
+      "description": "Academic buildings, classrooms, laboratories, seminar halls and department blocks.",
+      "verified": false
+    },
+
+    "auditoriums": {
+      "description": "Auditoriums, conference halls and event venues.",
+      "verified": false
+    },
+
+    "canteen": {
+      "description": "College canteen and cafeteria information including operating hours.",
+      "verified": false
+    },
+
+    "wifi": {
+      "description": "Campus Wi-Fi availability, access and usage guidelines.",
+      "verified": false
+    },
+
+    "medical_facility": {
+      "description": "Medical room, first aid and emergency healthcare support.",
+      "verified": false
+    },
+
+    "banking_services": {
+      "description": "ATM, banking and payment facilities available on or near campus.",
+      "verified": false
+    },
+
+    "printing_services": {
+      "description": "Printing, photocopy, scanning and stationery services.",
+      "verified": false
+    },
+
+    "parking": {
+      "description": "Student and staff parking facilities.",
+      "verified": false
+    },
+
+    "drinking_water": {
+      "description": "Drinking water facilities across campus.",
+      "verified": false
+    },
+
+    "washrooms": {
+      "description": "Washroom and restroom locations.",
+      "verified": false
+    },
+
+    "accessibility": {
+      "description": "Facilities supporting differently-abled students including ramps and lifts.",
+      "verified": false
+    },
+
+    "security": {
+      "description": "Campus security, emergency assistance and lost & found services.",
+      "verified": false
+    },
+
+    "campus_map": {
+      "description": "Campus navigation and important locations.",
+      "verified": false
+    }
+
+  },
+
+  "features": [
+
+    "Campus Map",
+
+    "Building Locator",
+
+    "Classroom Finder",
+
+    "Canteen Information",
+
+    "Wi-Fi Guide",
+
+    "Medical Assistance",
+
+    "Parking Information",
+
+    "ATM & Banking",
+
+    "Printing Services",
+
+    "Lost & Found",
+
+    "Emergency Contacts",
+
+    "Accessibility Information"
+
+  ],
+
+  "supported_queries": [
+
+    "Where is the canteen?",
+
+    "Where is Block A?",
+
+    "Campus map",
+
+    "Medical room location",
+
+    "ATM inside campus",
+
+    "Wi-Fi password",
+
+    "Parking area",
+
+    "Nearest washroom",
+
+    "Photocopy shop",
+
+    "Lost my ID card"
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "Where is the canteen located?",
+      "answer": ""
+    },
+
+    {
+      "question": "How can I access campus Wi-Fi?",
+      "answer": ""
+    },
+
+    {
+      "question": "Where is the medical room?",
+      "answer": ""
+    },
+
+    {
+      "question": "Is there an ATM on campus?",
+      "answer": ""
+    },
+
+    {
+      "question": "Where can I get documents printed or photocopied?",
+      "answer": ""
+    }
+
+  ],
+
+  "response_guidance": {
+
+    "if_location_query": "Provide the location if available. If unavailable, recommend using the campus map or asking the security/help desk.",
+
+    "if_facility_closed": "Advise the student to verify the operating hours before visiting.",
+
+    "if_emergency": "Immediately direct the student to the medical facility or campus security depending on the situation.",
+
+    "if_unknown": "Do not guess facility locations. Recommend contacting the college help desk."
+  },
+
+  "future_integrations": [
+
+    "Interactive campus map",
+
+    "Indoor navigation",
+
+    "QR-based building information",
+
+    "Live facility status",
+
+    "Parking availability",
+
+    "Real-time lost & found portal"
+
+  ],
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "College Administration / Campus Facilities",
+
+  "related_ids": [
+    5,
+    21,
+    63,
+    64,
+    65
+  ]
+},
+{
+  "id": 70,
+  "type": "student_clubs",
+  "category": "Student Life",
+  "title": "Clubs, Professional Chapters & Student Activities",
+
+  "keywords": [
+    "club",
+    "clubs",
+    "student club",
+    "technical club",
+    "coding club",
+    "robotics",
+    "ai club",
+    "ml club",
+    "innovation club",
+    "professional chapter",
+    "ieee",
+    "iste",
+    "csi",
+    "iete",
+    "nss",
+    "ncc",
+    "hackathon",
+    "competition",
+    "event",
+    "workshop",
+    "seminar",
+    "guest lecture",
+    "fest",
+    "cultural",
+    "sports",
+    "volunteer",
+    "student activity",
+    "co-curricular",
+    "extra curricular"
+  ],
+
+  "aliases": [
+    "Student Clubs",
+    "Technical Clubs",
+    "Professional Societies",
+    "Campus Activities",
+    "Student Organizations"
+  ],
+
+  "description": "Provides information about student clubs, professional chapters, technical communities, cultural organizations, sports activities, workshops, hackathons, competitions, and student engagement opportunities.",
+
+  "sections": {
+
+    "technical_clubs": {
+      "description": "Technical clubs related to engineering, programming, AI, robotics, electronics and innovation.",
+      "verified": false
+    },
+
+    "professional_chapters": {
+      "description": "Professional societies and student chapters such as IEEE, CSI, ISTE and IETE.",
+      "verified": false
+    },
+
+    "cultural_clubs": {
+      "description": "Music, dance, drama, literature, photography and fine arts clubs.",
+      "verified": false
+    },
+
+    "sports_clubs": {
+      "description": "Indoor and outdoor sports clubs and activities.",
+      "verified": false
+    },
+
+    "entrepreneurship_club": {
+      "description": "Innovation, startup and entrepreneurship communities.",
+      "verified": false
+    },
+
+    "events": {
+      "description": "Technical events, workshops, seminars, conferences and guest lectures.",
+      "verified": false
+    },
+
+    "hackathons": {
+      "description": "Internal and external hackathons and coding competitions.",
+      "verified": false
+    },
+
+    "volunteering": {
+      "description": "Volunteer opportunities through student organizations.",
+      "verified": false
+    },
+
+    "membership": {
+      "description": "Club membership process and eligibility.",
+      "verified": false
+    },
+
+    "leadership": {
+      "description": "Student coordinators, presidents, secretaries and faculty coordinators.",
+      "verified": false
+    }
+
+  },
+
+  "features": [
+
+    "Browse Clubs",
+
+    "Join a Club",
+
+    "Club Membership Information",
+
+    "Technical Events",
+
+    "Workshops",
+
+    "Hackathon Notifications",
+
+    "Competition Updates",
+
+    "Volunteer Opportunities",
+
+    "Student Leadership",
+
+    "Professional Chapters"
+
+  ],
+
+  "supported_queries": [
+
+    "Which clubs are available?",
+
+    "How do I join IEEE?",
+
+    "Coding club details",
+
+    "Upcoming workshop",
+
+    "Hackathon registration",
+
+    "Sports club",
+
+    "Photography club",
+
+    "Faculty coordinator",
+
+    "Club president",
+
+    "Technical events"
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "How can I join a student club?",
+      "answer": ""
+    },
+
+    {
+      "question": "What professional chapters are available?",
+      "answer": ""
+    },
+
+    {
+      "question": "How do I participate in hackathons?",
+      "answer": ""
+    },
+
+    {
+      "question": "Where can I find upcoming workshops?",
+      "answer": ""
+    },
+
+    {
+      "question": "Who is the faculty coordinator for a club?",
+      "answer": ""
+    }
+
+  ],
+
+  "response_guidance": {
+
+    "if_club_unknown": "Suggest similar clubs or recommend contacting the Student Activity Cell for the latest information.",
+
+    "if_event_query": "Provide only verified event information and registration details.",
+
+    "if_membership_query": "Explain the membership process if available; otherwise direct the student to the club coordinator.",
+
+    "if_leadership_unknown": "Do not guess coordinator names. Refer the student to the official club announcement or department."
+  },
+
+  "future_integrations": [
+
+    "Club registration portal",
+
+    "Event calendar integration",
+
+    "Digital participation certificates",
+
+    "Club achievement tracking",
+
+    "Student leadership directory",
+
+    "Event attendance analytics",
+
+    "Push notifications for workshops",
+
+    "Hackathon recommendation system"
+  ],
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "Student Activity Cell / Professional Chapters / College Website",
+
+  "related_ids": [
+    66,
+    67,
+    68,
+    69
+  ]
+},
+{
+  "id": 71,
+  "type": "student_grievance",
+  "category": "Student Support",
+  "title": "Grievances, Complaint Cell & Student Support",
+
+  "keywords": [
+    "complaint",
+    "grievance",
+    "issue",
+    "problem",
+    "student support",
+    "help",
+    "report",
+    "complaint status",
+    "grievance cell",
+    "student welfare",
+    "harassment",
+    "discipline",
+    "ragging",
+    "hostel complaint",
+    "faculty complaint",
+    "attendance issue",
+    "marks issue",
+    "fee issue",
+    "technical issue",
+    "portal issue",
+    "certificate issue",
+    "transport complaint",
+    "library complaint"
+  ],
+
+  "aliases": [
+    "Grievance Cell",
+    "Complaint Cell",
+    "Student Welfare",
+    "Student Help Desk",
+    "Support Center"
+  ],
+
+  "description": "Provides information about student grievances, complaint registration, complaint categories, escalation process, student welfare support, and issue resolution.",
+
+  "sections": {
+
+    "overview": {
+      "description": "Student grievance redressal system."
+    },
+
+    "complaint_categories": {
+      "categories": [
+        "Academic",
+        "Attendance",
+        "Examinations",
+        "Faculty",
+        "Library",
+        "Transport",
+        "Hostel",
+        "Scholarship",
+        "Fee Payment",
+        "Infrastructure",
+        "IT Services",
+        "Portal Issues",
+        "Discipline",
+        "Student Welfare",
+        "Others"
+      ]
+    },
+
+    "complaint_registration": {
+      "description": "Procedure for submitting complaints.",
+      "verified": false
+    },
+
+    "complaint_tracking": {
+      "description": "Track complaint status.",
+      "verified": false
+    },
+
+    "escalation": {
+      "description": "Escalation process if an issue remains unresolved.",
+      "verified": false
+    },
+
+    "student_welfare": {
+      "description": "Student counseling, welfare, and support services.",
+      "verified": false
+    },
+
+    "confidential_complaints": {
+      "description": "Sensitive complaints handled confidentially.",
+      "verified": false
+    }
+
+  },
+
+  "features": [
+
+    "Submit Complaint",
+
+    "Track Complaint",
+
+    "Complaint Categories",
+
+    "Student Welfare",
+
+    "Escalation Guide",
+
+    "Support Contacts",
+
+    "Complaint History",
+
+    "Anonymous Reporting (if supported)",
+
+    "Resolution Status"
+
+  ],
+
+  "supported_queries": [
+
+    "How do I file a complaint?",
+
+    "Attendance issue",
+
+    "Faculty complaint",
+
+    "Portal not working",
+
+    "Fee issue",
+
+    "Hostel complaint",
+
+    "Transport complaint",
+
+    "Scholarship issue",
+
+    "Complaint status",
+
+    "Need student support"
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "How do I submit a grievance?",
+      "answer": ""
+    },
+
+    {
+      "question": "Can I track my complaint?",
+      "answer": ""
+    },
+
+    {
+      "question": "How long does complaint resolution take?",
+      "answer": ""
+    },
+
+    {
+      "question": "Can complaints be confidential?",
+      "answer": ""
+    },
+
+    {
+      "question": "Who handles student grievances?",
+      "answer": ""
+    }
+
+  ],
+
+  "response_guidance": {
+
+    "if_issue_unclear": "Ask the student to briefly describe the problem before suggesting a solution.",
+
+    "if_department_known": "Direct the complaint to the appropriate department based on the issue category.",
+
+    "if_emergency": "For safety or medical emergencies, instruct the student to contact campus security or emergency services immediately.",
+
+    "if_sensitive": "Handle harassment, discrimination, or personal safety concerns with empathy and recommend the official grievance or welfare channels.",
+
+    "if_unknown": "Do not invent complaint procedures. Refer the student to the official Grievance Cell or Student Welfare Office."
+  },
+
+  "future_integrations": [
+
+    "Online complaint portal",
+
+    "Complaint ticket generation",
+
+    "Status notifications",
+
+    "Department-wise routing",
+
+    "Anonymous complaint system",
+
+    "AI complaint categorization",
+
+    "Resolution analytics",
+
+    "Student feedback system"
+
+  ],
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "Student Welfare Cell / Grievance Redressal Committee",
+
+  "related_ids": [
+    56,
+    57,
+    58,
+    60,
+    61,
+    64,
+    65,
+    69
+  ]
+},
+{
+  "id": 72,
+  "type": "anti_ragging",
+  "category": "Student Safety",
+  "title": "Anti-Ragging, Safety & Student Protection",
+
+  "keywords": [
+    "ragging",
+    "anti ragging",
+    "anti-ragging",
+    "harassment",
+    "bullying",
+    "student safety",
+    "safety",
+    "security",
+    "complaint",
+    "anonymous complaint",
+    "disciplinary action",
+    "anti ragging committee",
+    "anti ragging squad",
+    "helpline",
+    "hostel ragging",
+    "campus safety",
+    "threat",
+    "intimidation",
+    "student protection"
+  ],
+
+  "aliases": [
+    "Anti-Ragging Cell",
+    "Student Safety Cell",
+    "Safety Committee",
+    "Anti-Ragging Committee"
+  ],
+
+  "description": "Provides information about anti-ragging policies, student safety measures, reporting procedures, disciplinary actions, committees, awareness initiatives, and student protection resources.",
+
+  "sections": {
+
+    "overview": {
+      "description": "Institution's commitment to maintaining a ragging-free and safe campus environment."
+    },
+
+    "anti_ragging_policy": {
+      "description": "Official anti-ragging policy and institutional regulations.",
+      "verified": false
+    },
+
+    "committee": {
+      "description": "Anti-Ragging Committee members and responsibilities.",
+      "verified": false
+    },
+
+    "squad": {
+      "description": "Anti-Ragging Squad responsible for monitoring and immediate action.",
+      "verified": false
+    },
+
+    "reporting": {
+      "description": "Procedure for reporting ragging or safety-related incidents.",
+      "verified": false
+    },
+
+    "anonymous_reporting": {
+      "description": "Anonymous reporting options, if available.",
+      "verified": false
+    },
+
+    "disciplinary_actions": {
+      "description": "Possible disciplinary measures for violations.",
+      "verified": false
+    },
+
+    "awareness_programs": {
+      "description": "Orientation sessions and awareness campaigns on anti-ragging and student safety.",
+      "verified": false
+    },
+
+    "emergency_contacts": {
+      "description": "Emergency contacts related to campus safety.",
+      "verified": false
+    }
+
+  },
+
+  "features": [
+
+    "Report Ragging",
+
+    "Safety Guidelines",
+
+    "Anti-Ragging Policy",
+
+    "Committee Information",
+
+    "Anonymous Reporting",
+
+    "Emergency Contacts",
+
+    "Awareness Programs",
+
+    "Student Rights",
+
+    "Support Resources"
+
+  ],
+
+  "supported_queries": [
+
+    "How do I report ragging?",
+
+    "Anti-ragging committee",
+
+    "Anti-ragging squad",
+
+    "Campus safety",
+
+    "Student harassment",
+
+    "Anonymous complaint",
+
+    "Emergency contact",
+
+    "Anti-ragging affidavit",
+
+    "Disciplinary action",
+
+    "Safety guidelines"
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "How can I report ragging?",
+      "answer": ""
+    },
+
+    {
+      "question": "Can I submit an anonymous complaint?",
+      "answer": ""
+    },
+
+    {
+      "question": "Who is on the Anti-Ragging Committee?",
+      "answer": ""
+    },
+
+    {
+      "question": "What action is taken against ragging?",
+      "answer": ""
+    },
+
+    {
+      "question": "Where can I find the anti-ragging policy?",
+      "answer": ""
+    }
+
+  ],
+
+  "response_guidance": {
+
+    "if_immediate_danger": "Advise the student to move to a safe location and immediately contact campus security or the designated emergency contacts.",
+
+    "if_reporting": "Guide the student through the official reporting process and explain any available confidential reporting options.",
+
+    "if_sensitive": "Respond with empathy, avoid blaming language, and encourage use of official support channels.",
+
+    "if_policy_query": "Provide only verified policy information and avoid speculating about disciplinary outcomes."
+  },
+
+  "future_integrations": [
+
+    "Online incident reporting",
+
+    "Secure anonymous reporting",
+
+    "Case status tracking",
+
+    "Emergency SOS integration",
+
+    "Campus safety alerts",
+
+    "Awareness event calendar",
+
+    "Student safety resources"
+
+  ],
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "Anti-Ragging Committee / Student Safety Cell",
+
+  "related_ids": [
+    64,
+    65,
+    69,
+    71
+  ]
+},
+{
+  "id": 73,
+  "type": "community_engagement",
+  "category": "Student Development",
+  "title": "NSS, NCC & Community Outreach",
+
+  "keywords": [
+    "nss",
+    "ncc",
+    "national service scheme",
+    "national cadet corps",
+    "community service",
+    "volunteering",
+    "volunteer",
+    "social service",
+    "camp",
+    "special camp",
+    "blood donation",
+    "tree plantation",
+    "awareness program",
+    "cleanliness drive",
+    "swachh bharat",
+    "certificate",
+    "community outreach",
+    "youth activities",
+    "service hours",
+    "extension activities"
+  ],
+
+  "aliases": [
+    "NSS Unit",
+    "NCC Unit",
+    "Community Service",
+    "Extension Activities",
+    "Volunteer Programs"
+  ],
+
+  "description": "Provides information about NSS, NCC, community outreach programs, volunteering opportunities, camps, certificates, social initiatives, and extension activities conducted by the institution.",
+
+  "sections": {
+
+    "overview": {
+      "description": "Overview of NSS, NCC and community engagement activities."
+    },
+
+    "nss": {
+      "description": "National Service Scheme enrollment, activities and benefits.",
+      "verified": false
+    },
+
+    "ncc": {
+      "description": "National Cadet Corps enrollment, training and activities.",
+      "verified": false
+    },
+
+    "membership": {
+      "description": "Eligibility and enrollment process for NSS and NCC.",
+      "verified": false
+    },
+
+    "activities": {
+      "description": "Regular and special activities such as camps, awareness drives and social initiatives.",
+      "verified": false
+    },
+
+    "special_camps": {
+      "description": "Residential camps, rural outreach and special service programs.",
+      "verified": false
+    },
+
+    "certificates": {
+      "description": "Participation certificates, recognition and awards.",
+      "verified": false
+    },
+
+    "coordinators": {
+      "description": "Program Officers, ANOs and faculty coordinators.",
+      "verified": false
+    },
+
+    "achievements": {
+      "description": "Institutional achievements and recognitions in community service.",
+      "verified": false
+    }
+
+  },
+
+  "features": [
+
+    "NSS Enrollment",
+
+    "NCC Enrollment",
+
+    "Volunteer Opportunities",
+
+    "Activity Calendar",
+
+    "Camp Information",
+
+    "Community Service Records",
+
+    "Participation Certificates",
+
+    "Faculty Coordinators",
+
+    "Achievements",
+
+    "Notifications"
+
+  ],
+
+  "supported_queries": [
+
+    "How do I join NSS?",
+
+    "How do I join NCC?",
+
+    "Upcoming NSS camp",
+
+    "Blood donation camp",
+
+    "Tree plantation drive",
+
+    "Volunteer opportunities",
+
+    "NSS certificate",
+
+    "NCC eligibility",
+
+    "Program officer",
+
+    "Community service activities"
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "How can I join NSS?",
+      "answer": ""
+    },
+
+    {
+      "question": "How do I enroll in NCC?",
+      "answer": ""
+    },
+
+    {
+      "question": "What activities are conducted under NSS?",
+      "answer": ""
+    },
+
+    {
+      "question": "Will I receive a participation certificate?",
+      "answer": ""
+    },
+
+    {
+      "question": "Who is the NSS/NCC coordinator?",
+      "answer": ""
+    }
+
+  ],
+
+  "response_guidance": {
+
+    "if_enrollment_query": "Explain the eligibility and enrollment process if available. Otherwise, direct the student to the NSS/NCC coordinator.",
+
+    "if_activity_query": "Provide verified information about upcoming activities and participation requirements.",
+
+    "if_certificate_query": "Advise the student on certificate eligibility and collection procedures if officially available.",
+
+    "if_unknown": "Do not guess coordinator names or schedules. Refer the student to the official NSS/NCC unit."
+  },
+
+  "future_integrations": [
+
+    "Volunteer hour tracking",
+
+    "Digital participation certificates",
+
+    "Activity registration portal",
+
+    "Community service dashboard",
+
+    "Camp attendance tracking",
+
+    "Achievement badges",
+
+    "Event reminders"
+
+  ],
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "NSS Unit / NCC Unit / Student Activity Cell",
+
+  "related_ids": [
+    66,
+    69,
+    70,
+    71
+  ]
+},
+{
+  "id": 74,
+  "type": "innovation_ecosystem",
+  "category": "Innovation & Entrepreneurship",
+  "title": "Innovation, Incubation & Entrepreneurship",
+
+  "keywords": [
+    "innovation",
+    "incubation",
+    "startup",
+    "entrepreneurship",
+    "startup cell",
+    "innovation cell",
+    "incubation center",
+    "innovation hub",
+    "business idea",
+    "startup funding",
+    "mentor",
+    "innovation challenge",
+    "hackathon",
+    "ideathon",
+    "prototype",
+    "product development",
+    "entrepreneur",
+    "patent",
+    "intellectual property",
+    "iic",
+    "institution innovation council",
+    "msme",
+    "startup india"
+  ],
+
+  "aliases": [
+    "Innovation Cell",
+    "Incubation Center",
+    "Entrepreneurship Cell",
+    "Startup Cell",
+    "IIC"
+  ],
+
+  "description": "Provides information about innovation initiatives, incubation facilities, startup support, entrepreneurship programs, mentoring, funding opportunities, hackathons, ideathons, intellectual property, and innovation ecosystems.",
+
+  "sections": {
+
+    "overview": {
+      "description": "Overview of innovation and entrepreneurship initiatives."
+    },
+
+    "institution_innovation_council": {
+      "description": "Institution Innovation Council (IIC), its objectives, activities and programs.",
+      "verified": false
+    },
+
+    "incubation_center": {
+      "description": "Incubation facilities, startup support and incubation process.",
+      "verified": false
+    },
+
+    "startup_support": {
+      "description": "Guidance, mentoring and resources for student startups.",
+      "verified": false
+    },
+
+    "funding_opportunities": {
+      "description": "Information about grants, funding schemes and startup competitions.",
+      "verified": false
+    },
+
+    "mentorship": {
+      "description": "Faculty mentors, industry experts and startup advisors.",
+      "verified": false
+    },
+
+    "innovation_programs": {
+      "description": "Innovation challenges, ideathons, hackathons and product development programs.",
+      "verified": false
+    },
+
+    "ipr_patents": {
+      "description": "Intellectual Property Rights (IPR), patent awareness and filing guidance.",
+      "verified": false
+    },
+
+    "startup_resources": {
+      "description": "Business planning, legal guidance and entrepreneurship learning resources.",
+      "verified": false
+    }
+
+  },
+
+  "features": [
+
+    "Startup Guidance",
+
+    "Innovation Challenges",
+
+    "Hackathons",
+
+    "Ideathons",
+
+    "Mentorship",
+
+    "Incubation Support",
+
+    "Funding Opportunities",
+
+    "Patent Guidance",
+
+    "IIC Activities",
+
+    "Entrepreneurship Workshops",
+
+    "Startup Resources",
+
+    "Innovation Events"
+
+  ],
+
+  "supported_queries": [
+
+    "How do I start a startup?",
+
+    "Incubation center",
+
+    "Startup funding",
+
+    "Hackathon registration",
+
+    "Innovation competition",
+
+    "Patent filing",
+
+    "IIC activities",
+
+    "Need a mentor",
+
+    "Business idea support",
+
+    "Entrepreneurship workshop"
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "How can I join the Innovation Cell?",
+      "answer": ""
+    },
+
+    {
+      "question": "Does the college have an incubation center?",
+      "answer": ""
+    },
+
+    {
+      "question": "How can I get mentorship for my startup idea?",
+      "answer": ""
+    },
+
+    {
+      "question": "Are there funding opportunities for student startups?",
+      "answer": ""
+    },
+
+    {
+      "question": "How can I participate in hackathons and ideathons?",
+      "answer": ""
+    }
+
+  ],
+
+  "response_guidance": {
+
+    "if_startup_query": "Provide general guidance first, then recommend contacting the Innovation/Incubation Cell for institution-specific support.",
+
+    "if_funding_query": "Share only verified funding programs or clearly indicate when information needs official confirmation.",
+
+    "if_patent_query": "Explain the basics of patents and refer students to the institution's IPR support if available.",
+
+    "if_mentor_query": "Suggest connecting with the Innovation Cell or faculty mentors working in the relevant domain.",
+
+    "if_unknown": "Do not invent startup schemes, mentors or funding opportunities. Refer the student to the Innovation Cell."
+  },
+
+  "future_integrations": [
+
+    "Startup registration portal",
+
+    "Mentor matching system",
+
+    "Idea submission portal",
+
+    "Innovation project tracker",
+
+    "Patent application tracker",
+
+    "Funding opportunity alerts",
+
+    "Startup showcase",
+
+    "Innovation event calendar"
+
+  ],
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "Institution Innovation Council / Incubation Center / Entrepreneurship Cell",
+
+  "related_ids": [
+    66,
+    70,
+    73
+  ]
+},
+{
+  "id": 75,
+  "type": "research_and_ipr",
+  "category": "Research & Innovation",
+  "title": "Research, Publications & Intellectual Property",
+
+  "keywords": [
+    "research",
+    "publication",
+    "paper",
+    "journal",
+    "conference",
+    "conference paper",
+    "research project",
+    "funded project",
+    "patent",
+    "ipr",
+    "intellectual property",
+    "copyright",
+    "design registration",
+    "innovation",
+    "research lab",
+    "phd",
+    "research center",
+    "citation",
+    "scopus",
+    "web of science",
+    "ugc care",
+    "google scholar",
+    "orcid",
+    "research grant",
+    "faculty research"
+  ],
+
+  "aliases": [
+    "Research Cell",
+    "R&D Cell",
+    "Research and Development",
+    "IPR Cell",
+    "Research Centre"
+  ],
+
+  "description": "Provides information about research activities, publications, funded projects, research laboratories, conferences, intellectual property rights (IPR), patents, copyrights, and institutional research support.",
+
+  "sections": {
+
+    "overview": {
+      "description": "Overview of research and innovation activities within the institution."
+    },
+
+    "research_centers": {
+      "description": "Research centers, laboratories and specialization areas.",
+      "verified": false
+    },
+
+    "research_projects": {
+      "description": "Funded and ongoing research projects.",
+      "verified": false
+    },
+
+    "publications": {
+      "description": "Research papers published in journals and conferences.",
+      "verified": false
+    },
+
+    "conferences": {
+      "description": "Conference participation, paper presentations and workshops.",
+      "verified": false
+    },
+
+    "research_grants": {
+      "description": "Funding agencies, grants and sponsored research.",
+      "verified": false
+    },
+
+    "ipr_support": {
+      "description": "Support for patents, copyrights, trademarks and other intellectual property.",
+      "verified": false
+    },
+
+    "research_ethics": {
+      "description": "Guidelines for ethical research practices and plagiarism awareness.",
+      "verified": false
+    },
+
+    "faculty_profiles": {
+      "description": "Faculty research interests, publications and academic profiles.",
+      "verified": false
+    }
+
+  },
+
+  "features": [
+
+    "Research Opportunities",
+
+    "Publication Support",
+
+    "Conference Information",
+
+    "Research Grants",
+
+    "Patent Guidance",
+
+    "IPR Awareness",
+
+    "Research Laboratories",
+
+    "Faculty Research Profiles",
+
+    "Research Ethics Resources",
+
+    "Funding Notifications",
+
+    "Research Achievements"
+
+  ],
+
+  "supported_queries": [
+
+    "How do I publish a research paper?",
+
+    "Research labs",
+
+    "Patent support",
+
+    "Research grant",
+
+    "Faculty publications",
+
+    "Conference information",
+
+    "Research project",
+
+    "Google Scholar profile",
+
+    "Scopus journal",
+
+    "Research ethics"
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "How can I publish a research paper?",
+      "answer": ""
+    },
+
+    {
+      "question": "Does the college support patent filing?",
+      "answer": ""
+    },
+
+    {
+      "question": "What research laboratories are available?",
+      "answer": ""
+    },
+
+    {
+      "question": "How can I participate in research projects?",
+      "answer": ""
+    },
+
+    {
+      "question": "Where can I find faculty research publications?",
+      "answer": ""
+    }
+
+  ],
+
+  "response_guidance": {
+
+    "if_publication_query": "Explain the general publication process and direct the user to institutional research support for specific guidance.",
+
+    "if_patent_query": "Provide verified information on IPR assistance and avoid making legal claims or guarantees.",
+
+    "if_grant_query": "Mention only officially available grant opportunities or advise contacting the Research & Development Cell.",
+
+    "if_faculty_query": "Use the Faculty Directory module where applicable and supplement with verified research information.",
+
+    "if_unknown": "Do not fabricate research projects, publication records, or funding opportunities. Recommend contacting the Research & Development Cell."
+  },
+
+  "future_integrations": [
+
+    "Institutional research repository",
+
+    "Publication database",
+
+    "Patent tracking system",
+
+    "Research project management",
+
+    "Grant application portal",
+
+    "Faculty Google Scholar integration",
+
+    "ORCID profile integration",
+
+    "Research analytics dashboard",
+
+    "Conference calendar"
+
+  ],
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "Research & Development Cell / IPR Cell",
+
+  "related_ids": [
+    68,
+    70,
+    74
+  ]
+},
+{
+  "id": 76,
+  "type": "alumni_relations",
+  "category": "Alumni",
+  "title": "Alumni Relations & Alumni Network",
+
+  "keywords": [
+    "alumni",
+    "alumnus",
+    "alumna",
+    "graduate",
+    "passout",
+    "passed out",
+    "batch",
+    "alumni association",
+    "alumni network",
+    "mentor",
+    "mentorship",
+    "alumni meet",
+    "reunion",
+    "distinguished alumni",
+    "placement mentor",
+    "career guidance",
+    "higher studies",
+    "industry mentor",
+    "guest lecture",
+    "alumni registration",
+    "alumni portal"
+  ],
+
+  "aliases": [
+    "Alumni Cell",
+    "Alumni Association",
+    "Graduate Network",
+    "Alumni Portal"
+  ],
+
+  "description": "Provides information about alumni registration, alumni association activities, mentoring, networking, reunions, guest lectures, career guidance, and alumni engagement initiatives.",
+
+  "sections": {
+
+    "overview": {
+      "description": "Overview of alumni relations and engagement programs."
+    },
+
+    "alumni_association": {
+      "description": "Information about the official alumni association and its objectives.",
+      "verified": false
+    },
+
+    "registration": {
+      "description": "Alumni registration process and eligibility.",
+      "verified": false
+    },
+
+    "networking": {
+      "description": "Professional networking opportunities with alumni.",
+      "verified": false
+    },
+
+    "mentorship": {
+      "description": "Alumni mentoring for placements, careers, entrepreneurship and higher education.",
+      "verified": false
+    },
+
+    "events": {
+      "description": "Alumni meets, reunions, webinars, guest lectures and networking events.",
+      "verified": false
+    },
+
+    "distinguished_alumni": {
+      "description": "Notable alumni and their achievements.",
+      "verified": false
+    },
+
+    "career_support": {
+      "description": "Career guidance, referrals and professional support provided by alumni.",
+      "verified": false
+    },
+
+    "contributions": {
+      "description": "Alumni contributions to institutional development, mentoring, scholarships and outreach.",
+      "verified": false
+    }
+
+  },
+
+  "features": [
+
+    "Alumni Registration",
+
+    "Alumni Directory",
+
+    "Networking",
+
+    "Mentorship",
+
+    "Career Guidance",
+
+    "Guest Lectures",
+
+    "Alumni Events",
+
+    "Reunion Information",
+
+    "Distinguished Alumni",
+
+    "Professional Referrals",
+
+    "Success Stories"
+
+  ],
+
+  "supported_queries": [
+
+    "How do I register as an alumnus?",
+
+    "Alumni association",
+
+    "Upcoming alumni meet",
+
+    "Need an alumni mentor",
+
+    "Career guidance",
+
+    "Distinguished alumni",
+
+    "Networking opportunities",
+
+    "Guest lecture",
+
+    "Reunion",
+
+    "Alumni portal"
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "How can I register as an alumnus?",
+      "answer": ""
+    },
+
+    {
+      "question": "How can I connect with alumni mentors?",
+      "answer": ""
+    },
+
+    {
+      "question": "When is the next alumni meet?",
+      "answer": ""
+    },
+
+    {
+      "question": "What are the benefits of joining the alumni association?",
+      "answer": ""
+    },
+
+    {
+      "question": "How can alumni contribute to the institution?",
+      "answer": ""
+    }
+
+  ],
+
+  "response_guidance": {
+
+    "if_registration_query": "Provide the official registration process if available; otherwise direct the user to the Alumni Cell.",
+
+    "if_networking_query": "Recommend official alumni platforms and institutional networking events.",
+
+    "if_mentor_query": "Suggest connecting through the Alumni Cell or mentorship initiatives if available.",
+
+    "if_event_query": "Share only verified event information and registration details.",
+
+    "if_unknown": "Do not invent alumni records or event schedules. Refer the user to the official Alumni Association."
+  },
+
+  "future_integrations": [
+
+    "Alumni portal integration",
+
+    "Mentor matching",
+
+    "Professional networking platform",
+
+    "Job referral system",
+
+    "Alumni event registration",
+
+    "Digital alumni ID",
+
+    "Success story repository",
+
+    "Alumni donation portal",
+
+    "Industry expert directory"
+
+  ],
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "Alumni Association / Alumni Relations Cell",
+
+  "related_ids": [
+    66,
+    68,
+    70,
+    74,
+    75
+  ]
+},
+{
+  "id": 77,
+  "type": "sports_and_physical_education",
+  "category": "Student Development",
+  "title": "Sports, Physical Education & Fitness",
+
+  "keywords": [
+    "sports",
+    "games",
+    "physical education",
+    "gym",
+    "gymnasium",
+    "fitness",
+    "coach",
+    "sports quota",
+    "tournament",
+    "competition",
+    "cricket",
+    "football",
+    "volleyball",
+    "basketball",
+    "badminton",
+    "table tennis",
+    "chess",
+    "kabaddi",
+    "athletics",
+    "indoor games",
+    "outdoor games",
+    "sports day",
+    "practice",
+    "sports facilities",
+    "sports equipment",
+    "yoga"
+  ],
+
+  "aliases": [
+    "Sports Department",
+    "Physical Education",
+    "Gymnasium",
+    "Fitness Center",
+    "Sports Cell"
+  ],
+
+  "description": "Provides information about sports facilities, physical education activities, gymnasium, coaching, tournaments, competitions, fitness programs, and sports achievements.",
+
+  "sections": {
+
+    "overview": {
+      "description": "Overview of sports and physical education activities."
+    },
+
+    "sports_facilities": {
+      "description": "Indoor and outdoor sports facilities available on campus.",
+      "verified": false
+    },
+
+    "gymnasium": {
+      "description": "Gym facilities, equipment and usage guidelines.",
+      "verified": false
+    },
+
+    "sports_offered": {
+      "description": "Sports and games supported by the institution.",
+      "verified": false
+    },
+
+    "coaches": {
+      "description": "Sports coaches, trainers and physical education staff.",
+      "verified": false
+    },
+
+    "competitions": {
+      "description": "Inter-college, university, state and national competitions.",
+      "verified": false
+    },
+
+    "training": {
+      "description": "Practice schedules and coaching sessions.",
+      "verified": false
+    },
+
+    "sports_scholarships": {
+      "description": "Sports scholarships, incentives and recognition.",
+      "verified": false
+    },
+
+    "achievements": {
+      "description": "Sports achievements and awards earned by students.",
+      "verified": false
+    }
+
+  },
+
+  "features": [
+
+    "Sports Registration",
+
+    "Practice Schedule",
+
+    "Tournament Calendar",
+
+    "Gym Information",
+
+    "Sports Facilities",
+
+    "Coach Directory",
+
+    "Competition Registration",
+
+    "Fitness Programs",
+
+    "Sports Achievements",
+
+    "Equipment Information",
+
+    "Sports Notifications"
+
+  ],
+
+  "supported_queries": [
+
+    "How do I join the cricket team?",
+
+    "Gym timings",
+
+    "Sports coach",
+
+    "Practice schedule",
+
+    "Sports scholarship",
+
+    "Tournament registration",
+
+    "Indoor games",
+
+    "Outdoor games",
+
+    "Sports facilities",
+
+    "Annual sports day"
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "How can I join a college sports team?",
+      "answer": "Contact your seniors or Physical Education Department or Clubs"
+    },
+
+    {
+      "question": "What are the gym timings?",
+      "answer": "Contact Physical Education Department"
+    },
+
+    {
+      "question": "Which sports facilities are available?",
+      "answer": "Contact Physical Education Department"
+    },
+
+    {
+      "question": "How can I participate in tournaments?",
+      "answer": "Contact Physical Education Department"
+    },
+
+    {
+      "question": "Who is the sports coach?",
+      "answer": "Contact Physical Education Department"
+    }
+
+  ],
+
+  "response_guidance": {
+
+    "if_sport_query": "Provide information about the requested sport if available. If not, direct the student to the Sports Department.",
+
+    "if_schedule_query": "Use official practice or tournament schedules whenever available.",
+
+    "if_facility_query": "Share verified facility details and operating hours only.",
+
+    "if_unknown": "Do not guess coach names, schedules or facilities. Recommend contacting the Physical Education Department."
+  },
+
+  "future_integrations": [
+
+    "Sports event registration",
+
+    "Practice attendance",
+
+    "Tournament results",
+
+    "Sports achievement database",
+
+    "Gym membership management",
+
+    "Fitness challenge tracker",
+
+    "Sports facility booking",
+
+    "Equipment inventory",
+
+    "Performance analytics"
+
+  ],
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "Department of Physical Education & Sports",
+
+  "related_ids": [
+    69,
+    70,
+    73,
+    76
+  ]
+},
+{
+  "id": 78,
+  "type": "international_relations",
+  "category": "Global Opportunities",
+  "title": "International Relations, Higher Education & Exchange Programs",
+
+  "keywords": [
+    "international",
+    "international relations",
+    "exchange program",
+    "student exchange",
+    "semester abroad",
+    "study abroad",
+    "higher education",
+    "masters",
+    "ms",
+    "mtech",
+    "mba",
+    "phd",
+    "research internship",
+    "foreign university",
+    "international internship",
+    "collaboration",
+    "mou",
+    "partner university",
+    "scholarship abroad",
+    "visa",
+    "toefl",
+    "ielts",
+    "gre",
+    "gmat",
+    "gate",
+    "higher studies"
+  ],
+
+  "aliases": [
+    "International Office",
+    "International Relations Cell",
+    "Global Programs",
+    "Study Abroad Cell",
+    "Higher Studies Cell"
+  ],
+
+  "description": "Provides information about international collaborations, student exchange programs, higher education guidance, overseas internships, scholarships, university partnerships, and global academic opportunities.",
+
+  "sections": {
+
+    "overview": {
+      "description": "Overview of international collaborations and higher education support."
+    },
+
+    "international_collaborations": {
+      "description": "Institutional collaborations and Memoranda of Understanding (MoUs) with national and international organizations.",
+      "verified": false
+    },
+
+    "exchange_programs": {
+      "description": "Student and faculty exchange opportunities.",
+      "verified": false
+    },
+
+    "higher_studies_guidance": {
+      "description": "Guidance for postgraduate studies in India and abroad.",
+      "verified": false
+    },
+
+    "international_internships": {
+      "description": "Research and industry internship opportunities outside India.",
+      "verified": false
+    },
+
+    "scholarships": {
+      "description": "Scholarships for higher education and international programs.",
+      "verified": false
+    },
+
+    "entrance_exams": {
+      "description": "Information about exams such as GATE, GRE, GMAT, TOEFL and IELTS.",
+      "verified": false
+    },
+
+    "visa_support": {
+      "description": "General guidance regarding visa documentation and pre-departure preparation.",
+      "verified": false
+    },
+
+    "partner_universities": {
+      "description": "List of partner universities and collaborative institutions.",
+      "verified": false
+    }
+
+  },
+
+  "features": [
+
+    "Study Abroad Guidance",
+
+    "Exchange Program Information",
+
+    "Higher Education Counseling",
+
+    "International Internship Information",
+
+    "Scholarship Resources",
+
+    "Entrance Exam Guidance",
+
+    "Partner University Information",
+
+    "International Events",
+
+    "Global Opportunities",
+
+    "Career Counseling"
+
+  ],
+
+  "supported_queries": [
+
+    "How can I study abroad?",
+
+    "Student exchange program",
+
+    "International internship",
+
+    "Partner universities",
+
+    "GRE preparation",
+
+    "IELTS information",
+
+    "Higher studies guidance",
+
+    "Scholarships abroad",
+
+    "Research opportunities",
+
+    "Foreign university collaboration"
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "Does the college offer student exchange programs?",
+      "answer": ""
+    },
+
+    {
+      "question": "How can I apply for higher studies abroad?",
+      "answer": ""
+    },
+
+    {
+      "question": "Are there international internship opportunities?",
+      "answer": ""
+    },
+
+    {
+      "question": "What scholarships are available for studying abroad?",
+      "answer": ""
+    },
+
+    {
+      "question": "Which universities collaborate with the institution?",
+      "answer": ""
+    }
+
+  ],
+
+  "response_guidance": {
+
+    "if_exchange_query": "Provide only officially announced exchange opportunities and eligibility criteria.",
+
+    "if_higher_studies_query": "Offer general guidance and refer students to the Higher Studies or International Relations Cell for institution-specific support.",
+
+    "if_exam_query": "Explain the purpose of entrance exams without claiming they are mandatory unless officially required by the target institution.",
+
+    "if_unknown": "Do not invent international partnerships, scholarships or exchange programs. Recommend contacting the International Relations Office."
+  },
+
+  "future_integrations": [
+
+    "Partner university database",
+
+    "Exchange application portal",
+
+    "Scholarship recommendation engine",
+
+    "International event calendar",
+
+    "Study abroad roadmap",
+
+    "Application deadline tracker",
+
+    "Alumni abroad directory",
+
+    "Country-specific guidance",
+
+    "Language certification resources"
+
+  ],
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "International Relations Cell / Higher Studies Cell",
+
+  "related_ids": [
+    66,
+    74,
+    75,
+    76
+  ]
+},
+{
+  "id": 79,
+  "type": "it_services",
+  "category": "Information Technology",
+  "title": "IT Services, Digital Infrastructure & Technical Support",
+
+  "keywords": [
+    "it",
+    "it support",
+    "technical support",
+    "help desk",
+    "samvidha",
+    "portal",
+    "login",
+    "password",
+    "forgot password",
+    "account locked",
+    "wifi",
+    "internet",
+    "email",
+    "college email",
+    "erp",
+    "lms",
+    "moodle",
+    "digital services",
+    "website",
+    "student portal",
+    "faculty portal",
+    "mobile app",
+    "software",
+    "computer lab",
+    "vpn",
+    "network",
+    "printer",
+    "scanner",
+    "computer center"
+  ],
+
+  "aliases": [
+    "IT Cell",
+    "IT Department",
+    "Help Desk",
+    "Technical Support",
+    "Digital Services"
+  ],
+
+  "description": "Provides information about institutional IT services, student portals, digital infrastructure, Wi-Fi, LMS, email services, account management, computer laboratories, and technical support.",
+
+  "sections": {
+
+    "overview": {
+      "description": "Overview of digital services and institutional IT infrastructure."
+    },
+
+    "student_portal": {
+      "description": "Student portal access, login and account management.",
+      "verified": false
+    },
+
+    "samvidha_services": {
+      "description": "Services related to the Samvidha academic portal.",
+      "verified": false
+    },
+
+    "email_services": {
+      "description": "Institutional email accounts and usage guidelines.",
+      "verified": false
+    },
+
+    "wifi_network": {
+      "description": "Campus Wi-Fi access, authentication and troubleshooting.",
+      "verified": false
+    },
+
+    "learning_management_system": {
+      "description": "Learning Management System (LMS) access and learning resources.",
+      "verified": false
+    },
+
+    "computer_labs": {
+      "description": "Computer laboratories, software availability and lab usage policies.",
+      "verified": false
+    },
+
+    "software_resources": {
+      "description": "Licensed software and academic digital tools available to students.",
+      "verified": false
+    },
+
+    "technical_support": {
+      "description": "Help desk services and issue reporting.",
+      "verified": false
+    },
+
+    "cybersecurity": {
+      "description": "Account security, password management and safe computing practices.",
+      "verified": false
+    }
+
+  },
+
+  "features": [
+
+    "Password Reset Guidance",
+
+    "Portal Login Support",
+
+    "Samvidha Assistance",
+
+    "Wi-Fi Setup",
+
+    "Email Configuration",
+
+    "LMS Access",
+
+    "Computer Lab Information",
+
+    "Software Downloads",
+
+    "Help Desk Contacts",
+
+    "Technical Issue Reporting",
+
+    "Cybersecurity Tips"
+
+  ],
+
+  "supported_queries": [
+
+    "Forgot Samvidha password",
+
+    "Portal login problem",
+
+    "Wi-Fi not working",
+
+    "College email",
+
+    "Reset password",
+
+    "Computer lab timings",
+
+    "Software installation",
+
+    "LMS login",
+
+    "Technical support",
+
+    "Student portal issue"
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "How can I reset my portal password?",
+      "answer": ""
+    },
+
+    {
+      "question": "How do I connect to campus Wi-Fi?",
+      "answer": ""
+    },
+
+    {
+      "question": "How can I access the LMS?",
+      "answer": ""
+    },
+
+    {
+      "question": "Where can I report a technical issue?",
+      "answer": ""
+    },
+
+    {
+      "question": "Does the college provide an institutional email account?",
+      "answer": ""
+    }
+
+  ],
+
+  "response_guidance": {
+
+    "if_login_issue": "Ask which system or portal the user is trying to access before suggesting troubleshooting steps.",
+
+    "if_password_issue": "Provide official password reset guidance where available. Never ask for or store passwords.",
+
+    "if_connectivity_issue": "Suggest basic troubleshooting (network check, reconnect, browser refresh) before referring to the IT Help Desk.",
+
+    "if_security_query": "Promote secure account practices and never request sensitive credentials.",
+
+    "if_unknown": "Do not guess portal configurations or account policies. Refer the user to the official IT Help Desk."
+  },
+
+  "future_integrations": [
+
+    "Single Sign-On (SSO)",
+
+    "Automated password reset",
+
+    "Live system status dashboard",
+
+    "IT support ticket portal",
+
+    "Remote desktop access",
+
+    "Campus software catalog",
+
+    "Device registration",
+
+    "Push notifications for outages",
+
+    "AI troubleshooting assistant"
+
+  ],
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "IT Department / Computer Center / Digital Services",
+
+  "related_ids": [
+    57,
+    63,
+    67,
+    69,
+    71
+  ]
+},
+{
+  "id": 80,
+  "type": "health_and_wellness",
+  "category": "Student Wellness",
+  "title": "Health, Counseling & Student Wellness",
+
+  "keywords": [
+    "health",
+    "medical",
+    "doctor",
+    "clinic",
+    "medical room",
+    "first aid",
+    "wellness",
+    "mental health",
+    "mental wellness",
+    "stress",
+    "anxiety",
+    "depression",
+    "counseling",
+    "counsellor",
+    "psychologist",
+    "student wellness",
+    "health camp",
+    "medical emergency",
+    "emergency",
+    "ambulance",
+    "blood donation",
+    "health checkup",
+    "vaccination",
+    "insurance",
+    "fitness"
+  ],
+
+  "aliases": [
+    "Health Center",
+    "Medical Room",
+    "Counseling Cell",
+    "Student Wellness Center",
+    "Medical Services"
+  ],
+
+  "description": "Provides information about medical services, counseling support, mental wellness, emergency assistance, health awareness programs, insurance information and student wellness initiatives.",
+
+  "sections": {
+
+    "overview": {
+      "description": "Overview of health, counseling and wellness services available to students."
+    },
+
+    "medical_services": {
+      "description": "Medical room, first aid facilities and healthcare support.",
+      "verified": false
+    },
+
+    "counseling_services": {
+      "description": "Professional counseling and student guidance services.",
+      "verified": false
+    },
+
+    "mental_wellness": {
+      "description": "Mental health awareness, stress management and emotional wellbeing resources.",
+      "verified": false
+    },
+
+    "emergency_support": {
+      "description": "Emergency medical procedures and important contact information.",
+      "verified": false
+    },
+
+    "health_programs": {
+      "description": "Health awareness campaigns, checkup camps and wellness events.",
+      "verified": false
+    },
+
+    "insurance": {
+      "description": "Student health insurance and medical assistance information.",
+      "verified": false
+    },
+
+    "fitness_and_wellbeing": {
+      "description": "Fitness initiatives, yoga sessions and wellness activities.",
+      "verified": false
+    }
+
+  },
+
+  "features": [
+
+    "Medical Assistance",
+
+    "Counseling Support",
+
+    "Mental Wellness Resources",
+
+    "Emergency Contacts",
+
+    "First Aid Information",
+
+    "Health Camp Notifications",
+
+    "Wellness Programs",
+
+    "Insurance Information",
+
+    "Stress Management Resources",
+
+    "Fitness Activities"
+
+  ],
+
+  "supported_queries": [
+
+    "Where is the medical room?",
+
+    "Need counseling",
+
+    "Mental health support",
+
+    "Medical emergency",
+
+    "Health checkup camp",
+
+    "Blood donation camp",
+
+    "Student insurance",
+
+    "Counselor appointment",
+
+    "Stress management",
+
+    "First aid"
+
+  ],
+
+  "faq": [
+
+    {
+      "question": "Where is the medical room located?",
+      "answer": ""
+    },
+
+    {
+      "question": "How can I meet a counselor?",
+      "answer": ""
+    },
+
+    {
+      "question": "What should I do during a medical emergency?",
+      "answer": ""
+    },
+
+    {
+      "question": "Does the college conduct health camps?",
+      "answer": ""
+    },
+
+    {
+      "question": "Are counseling services confidential?",
+      "answer": ""
+    }
+
+  ],
+
+  "response_guidance": {
+
+    "if_medical_emergency": "Advise the student to immediately contact campus medical services or local emergency services. Do not delay emergency care.",
+
+    "if_mental_health": "Respond empathetically, encourage the student to seek support from the counseling service, and avoid making diagnostic statements.",
+
+    "if_health_program_query": "Provide verified information about wellness events or recommend contacting the Student Wellness Center.",
+
+    "if_unknown": "Do not guess medical procedures or counseling policies. Refer the student to the official Health Center or Counseling Cell."
+  },
+
+  "future_integrations": [
+
+    "Online counseling appointments",
+
+    "Medical appointment booking",
+
+    "Emergency SOS",
+
+    "Health record integration",
+
+    "Wellness event registration",
+
+    "Mental wellness self-help resources",
+
+    "Push notifications for health camps",
+
+    "Anonymous counseling requests",
+
+    "Fitness activity tracker"
+
+  ],
+
+  "priority": 100,
+
+  "verified": false,
+
+  "status": "needs_verification",
+
+  "source": "Health Center / Counseling Cell / Student Wellness Center",
+
+  "related_ids": [
+    69,
+    71,
+    72,
+    77,
+    79
+  ]
+}
+  ],
+
+  "faq": [],
+
+  "synonyms": {},
+
+  "intents": [],
+
+  "templates": {}
+}
