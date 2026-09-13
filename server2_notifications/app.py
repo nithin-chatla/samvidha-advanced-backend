@@ -116,6 +116,7 @@ def notify_anon_chat():
                 "route": "/anonymous_chat",
                 "title": title,
                 "body": body_text,
+                "sender": sender,
                 "click_action": "FLUTTER_NOTIFICATION_CLICK"
             },
             android=messaging.AndroidConfig(
