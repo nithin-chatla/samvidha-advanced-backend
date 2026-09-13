@@ -14,39 +14,68 @@ CORS(app)
 # High-concurrency async thread pool for zero-delay WhatsApp-speed background dispatching
 executor = ThreadPoolExecutor(max_workers=30)
 
-_active_project_id = None
-try:
-    if not firebase_admin._apps:
-        firebase_sa = os.environ.get("FIREBASE_SERVICE_ACCOUNT")
-        if firebase_sa:
-            cred_dict = json.loads(firebase_sa)
-            cred = credentials.Certificate(cred_dict)
-            _active_project_id = cred_dict.get("project_id", "custom")
-        elif os.path.exists("serviceAccountKey.json"):
+_initialized_projects = []
+
+def _init_firebase_apps():
+    global _initialized_projects
+    _initialized_projects = []
+    
+    # 1. Primary Service Account (e.g., iare-2204f core)
+    sa_primary = os.environ.get("FIREBASE_SERVICE_ACCOUNT")
+    if sa_primary:
+        try:
+            dict_1 = json.loads(sa_primary)
+            proj_1 = dict_1.get("project_id", "primary")
+            if "default" not in firebase_admin._apps:
+                cred1 = credentials.Certificate(dict_1)
+                firebase_admin.initialize_app(cred1, name="[DEFAULT]")
+                _initialized_projects.append(proj_1)
+                print(f"✅ [Server 2] Initialized Primary Firebase project: {proj_1}")
+        except Exception as e:
+            print(f"⚠️ [Server 2] Error initializing Primary Firebase: {e}")
+
+    # 2. Secondary Service Account (e.g., samvidha-iare community)
+    sa_secondary = os.environ.get("FIREBASE_SERVICE_ACCOUNT_2") or os.environ.get("FIREBASE_SERVICE_ACCOUNT_COMMUNITY")
+    if sa_secondary:
+        try:
+            dict_2 = json.loads(sa_secondary)
+            proj_2 = dict_2.get("project_id", "secondary")
+            if "secondary" not in firebase_admin._apps and proj_2 not in _initialized_projects:
+                cred2 = credentials.Certificate(dict_2)
+                firebase_admin.initialize_app(cred2, name="secondary")
+                _initialized_projects.append(proj_2)
+                print(f"✅ [Server 2] Initialized Secondary Firebase project: {proj_2}")
+        except Exception as e:
+            print(f"⚠️ [Server 2] Error initializing Secondary Firebase: {e}")
+
+    # 3. Fallback to local serviceAccountKey.json if running locally
+    if not _initialized_projects and os.path.exists("serviceAccountKey.json"):
+        try:
             with open("serviceAccountKey.json") as f:
-                cred_dict = json.load(f)
-                _active_project_id = cred_dict.get("project_id", "local")
-            cred = credentials.Certificate("serviceAccountKey.json")
-        else:
-            cred = None
-            
-        if cred:
-            firebase_admin.initialize_app(cred)
-            print(f"✅ [Server 2] Firebase Admin SDK initialized successfully for project: {_active_project_id}")
-        else:
-            print("⚠️ [Server 2] No service account provided. Running in standalone mode.")
-except Exception as e:
-    print(f"⚠️ [Server 2] Firebase Admin initialization error: {e}")
+                dict_local = json.load(f)
+                proj_local = dict_local.get("project_id", "local")
+            cred_local = credentials.Certificate("serviceAccountKey.json")
+            firebase_admin.initialize_app(cred_local)
+            _initialized_projects.append(proj_local)
+            print(f"✅ [Server 2] Initialized Local Firebase project: {proj_local}")
+        except Exception as e:
+            print(f"⚠️ [Server 2] Local Firebase init error: {e}")
+
+_init_firebase_apps()
 
 def _dispatch_fcm_async(push_msg):
-    """Background worker for instant FCM dispatch without blocking Flask HTTP response"""
+    """Broadcasts FCM push notifications to all configured Firebase projects concurrently"""
     try:
-        if firebase_admin._apps:
-            response = messaging.send(push_msg)
-            return response
+        apps = list(firebase_admin._apps.values())
+        if not apps:
+            return None
+        for fb_app in apps:
+            try:
+                messaging.send(push_msg, app=fb_app)
+            except Exception as app_err:
+                print(f"⚠️ [FCM Send Error on {fb_app.name}]: {app_err}")
     except Exception as e:
         print(f"⚠️ [FCM Dispatch Error]: {e}")
-        return None
 
 @app.route("/", methods=["GET"])
 @app.route("/health", methods=["GET"])
@@ -55,8 +84,8 @@ def health():
         "status": "ok",
         "service": "Samvidha Notification Dispatcher (Server 2)",
         "fcm_ready": bool(firebase_admin._apps),
-        "active_firebase_project": _active_project_id or "not_configured",
-        "engine": "WhatsApp-Speed High Priority Async Dispatcher"
+        "active_firebase_projects": _initialized_projects or ["not_configured"],
+        "engine": "WhatsApp-Speed Dual-Project High Priority Async Dispatcher"
     })
 
 @app.route("/api/notify_anon_chat", methods=["POST"])
