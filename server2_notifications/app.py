@@ -14,20 +14,25 @@ CORS(app)
 # High-concurrency async thread pool for zero-delay WhatsApp-speed background dispatching
 executor = ThreadPoolExecutor(max_workers=30)
 
-# Initialize Firebase Admin SDK
+_active_project_id = None
 try:
     if not firebase_admin._apps:
         firebase_sa = os.environ.get("FIREBASE_SERVICE_ACCOUNT")
         if firebase_sa:
-            cred = credentials.Certificate(json.loads(firebase_sa))
+            cred_dict = json.loads(firebase_sa)
+            cred = credentials.Certificate(cred_dict)
+            _active_project_id = cred_dict.get("project_id", "custom")
         elif os.path.exists("serviceAccountKey.json"):
+            with open("serviceAccountKey.json") as f:
+                cred_dict = json.load(f)
+                _active_project_id = cred_dict.get("project_id", "local")
             cred = credentials.Certificate("serviceAccountKey.json")
         else:
             cred = None
             
         if cred:
             firebase_admin.initialize_app(cred)
-            print("✅ [Server 2] Firebase Admin SDK initialized successfully.")
+            print(f"✅ [Server 2] Firebase Admin SDK initialized successfully for project: {_active_project_id}")
         else:
             print("⚠️ [Server 2] No service account provided. Running in standalone mode.")
 except Exception as e:
@@ -50,6 +55,7 @@ def health():
         "status": "ok",
         "service": "Samvidha Notification Dispatcher (Server 2)",
         "fcm_ready": bool(firebase_admin._apps),
+        "active_firebase_project": _active_project_id or "not_configured",
         "engine": "WhatsApp-Speed High Priority Async Dispatcher"
     })
 
