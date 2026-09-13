@@ -1,5 +1,7 @@
 import os
 import json
+import time
+from concurrent.futures import ThreadPoolExecutor
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import firebase_admin
@@ -8,6 +10,9 @@ from firebase_admin import credentials, messaging
 # Initialize Flask App for Dedicated Push Notification Dispatcher
 app = Flask(__name__)
 CORS(app)
+
+# High-concurrency async thread pool for zero-delay WhatsApp-speed background dispatching
+executor = ThreadPoolExecutor(max_workers=30)
 
 # Initialize Firebase Admin SDK
 try:
@@ -28,13 +33,24 @@ try:
 except Exception as e:
     print(f"⚠️ [Server 2] Firebase Admin initialization error: {e}")
 
+def _dispatch_fcm_async(push_msg):
+    """Background worker for instant FCM dispatch without blocking Flask HTTP response"""
+    try:
+        if firebase_admin._apps:
+            response = messaging.send(push_msg)
+            return response
+    except Exception as e:
+        print(f"⚠️ [FCM Dispatch Error]: {e}")
+        return None
+
 @app.route("/", methods=["GET"])
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify({
         "status": "ok",
         "service": "Samvidha Notification Dispatcher (Server 2)",
-        "fcm_ready": bool(firebase_admin._apps)
+        "fcm_ready": bool(firebase_admin._apps),
+        "engine": "WhatsApp-Speed High Priority Async Dispatcher"
     })
 
 @app.route("/api/notify_anon_chat", methods=["POST"])
@@ -52,29 +68,157 @@ def notify_anon_chat():
 
         topic = "anon_chat"
         title = "Anonymous Chat Active"
-        message = f"{sender}: {message}"
-        if len(message) > 60:
-            message = message[:57] + "..."
+        body_text = f"{sender}: {message}"
+        if len(body_text) > 60:
+            body_text = body_text[:57] + "..."
+        
+        push_msg = messaging.Message(
+            notification=messaging.Notification(
+                title=title,
+                body=body_text,
+            ),
+            data={
+                "route": "/anonymous_chat",
+                "title": title,
+                "body": body_text,
+                "click_action": "FLUTTER_NOTIFICATION_CLICK"
+            },
+            android=messaging.AndroidConfig(
+                priority="high",
+                ttl=3600,
+                collapse_key="anon_chat",
+                notification=messaging.AndroidNotification(
+                    channel_id="samvidha_alerts_high",
+                    priority="high",
+                    default_sound=True,
+                    default_vibrate_timings=True,
+                    visibility="public"
+                )
+            ),
+            apns=messaging.APNSConfig(
+                headers={"apns-priority": "10", "apns-push-type": "alert"}
+            ),
+            topic=topic
+        )
+        
+        # Dispatch in background worker thread instantly
+        executor.submit(_dispatch_fcm_async, push_msg)
+        return jsonify({"success": True, "status": "dispatched_async"})
+    except Exception as e:
+        print(f"FCM Error: {e}")
+        return jsonify({"success": False, "error": str(e)}), 500
+
+@app.route("/api/notify_messenger", methods=["POST"])
+def notify_messenger():
+    try:
+        data = request.json or {}
+        sender = data.get("sender", "Someone")
+        recipient = data.get("recipient", "")
+        message = data.get("message", "")
+        custom_title = data.get("title")
+        custom_route = data.get("route", "/messenger_chat")
+        
+        if not recipient:
+            return jsonify({"success": False, "error": "No recipient specified"}), 400
+            
+        topic = f"dm_{recipient.upper().strip()}"
+        
+        title = custom_title or f"💬 {sender}"
+        if len(title) > 40:
+            title = title[:37] + "..."
+            
+        if len(message) > 80:
+            message = message[:77] + "..."
+        
+        collapse_key_val = f"dm_{sender.replace(' ', '_')}"
         
         push_msg = messaging.Message(
             notification=messaging.Notification(
                 title=title,
                 body=message,
             ),
-            data={
-                "route": "/anonymous_chat"
-            },
             android=messaging.AndroidConfig(
                 priority="high",
-                collapse_key="anon_chat"
+                ttl=3600,
+                collapse_key=collapse_key_val,
+                notification=messaging.AndroidNotification(
+                    channel_id="samvidha_alerts_high",
+                    tag=collapse_key_val,
+                    priority="high",
+                    default_sound=True,
+                    default_vibrate_timings=True,
+                    visibility="public",
+                    click_action="FLUTTER_NOTIFICATION_CLICK"
+                )
             ),
-            topic=topic
+            apns=messaging.APNSConfig(
+                headers={"apns-priority": "10", "apns-push-type": "alert", "apns-collapse-id": collapse_key_val}
+            ),
+            topic=topic,
+            data={
+                "title": title,
+                "body": message,
+                "route": custom_route,
+                "sender": sender,
+                "click_action": "FLUTTER_NOTIFICATION_CLICK"
+            }
         )
         
-        response = messaging.send(push_msg)
-        return jsonify({"success": True, "message_id": response})
+        executor.submit(_dispatch_fcm_async, push_msg)
+        return jsonify({"success": True, "status": "dispatched_async"})
     except Exception as e:
         print(f"FCM Error: {e}")
+        return jsonify({"success": False, "error": str(e)}), 500
+
+@app.route("/api/notify_batch", methods=["POST"])
+def notify_batch():
+    """Ultra-fast parallel batch notification for multiple mentioned users"""
+    try:
+        data = request.json or {}
+        recipients = data.get("recipients", [])
+        sender = data.get("sender", "Someone")
+        message = data.get("message", "")
+        
+        if not recipients:
+            return jsonify({"success": False, "error": "No recipients provided"}), 400
+            
+        for roll in recipients:
+            roll_clean = roll.upper().strip()
+            if not roll_clean:
+                continue
+            topic = f"dm_{roll_clean}"
+            title = f"🗣️ Mentioned in Anon Chat"
+            push_msg = messaging.Message(
+                notification=messaging.Notification(
+                    title=title,
+                    body=f"{sender}: {message}"[:80],
+                ),
+                android=messaging.AndroidConfig(
+                    priority="high",
+                    ttl=3600,
+                    notification=messaging.AndroidNotification(
+                        channel_id="samvidha_alerts_high",
+                        priority="high",
+                        default_sound=True,
+                        default_vibrate_timings=True,
+                        visibility="public"
+                    )
+                ),
+                apns=messaging.APNSConfig(
+                    headers={"apns-priority": "10", "apns-push-type": "alert"}
+                ),
+                topic=topic,
+                data={
+                    "title": title,
+                    "body": message[:80],
+                    "route": "/anonymous_chat",
+                    "sender": sender
+                }
+            )
+            executor.submit(_dispatch_fcm_async, push_msg)
+            
+        return jsonify({"success": True, "dispatched_count": len(recipients)})
+    except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
 
 @app.route("/api/notify_admin_alert", methods=["POST"])
@@ -87,73 +231,35 @@ def notify_admin_alert():
         route = data.get("route", "/dashboard")
         
         push_msg = messaging.Message(
+            notification=messaging.Notification(
+                title=title,
+                body=message[:100],
+            ),
             data={
                 "title": title,
                 "message": message,
-                "route": route
+                "route": route,
+                "click_action": "FLUTTER_NOTIFICATION_CLICK"
             },
             android=messaging.AndroidConfig(
                 priority="high",
-            ),
-            topic=topic,
-        )
-        
-        response = messaging.send(push_msg)
-        return jsonify({"success": True, "message_id": response})
-    except Exception as e:
-        print(f"FCM Error: {e}")
-        return jsonify({"success": False, "error": str(e)}), 500
-
-@app.route("/api/notify_messenger", methods=["POST"])
-def notify_messenger():
-    try:
-        data = request.json or {}
-        sender = data.get("sender", "Someone")
-        recipient = data.get("recipient", "")
-        message = data.get("message", "")
-        
-        if not recipient:
-            return jsonify({"success": False, "error": "No recipient specified"}), 400
-            
-        topic = f"dm_{recipient.upper()}"
-        
-        title = f"💬 {sender}"
-        if len(title) > 35:
-            title = title[:32] + "..."
-            
-        if len(message) > 60:
-            message = message[:57] + "..."
-        
-        collapse_key_val = f"dm_{sender}"
-        
-        push_msg = messaging.Message(
-            notification=messaging.Notification(
-                title=title,
-                body=message,
-            ),
-            android=messaging.AndroidConfig(
-                priority="high",
-                collapse_key=collapse_key_val,
+                ttl=86400,
                 notification=messaging.AndroidNotification(
                     channel_id="samvidha_alerts_high",
-                    tag=collapse_key_val,
+                    priority="high",
                     default_sound=True,
+                    default_vibrate_timings=True,
+                    visibility="public"
                 )
             ),
             apns=messaging.APNSConfig(
-                headers={"apns-collapse-id": collapse_key_val}
+                headers={"apns-priority": "10", "apns-push-type": "alert"}
             ),
             topic=topic,
-            data={
-                "title": title,
-                "body": message,
-                "route": "/messenger_chat",
-                "sender": sender
-            }
         )
         
-        response = messaging.send(push_msg)
-        return jsonify({"success": True, "message_id": response})
+        executor.submit(_dispatch_fcm_async, push_msg)
+        return jsonify({"success": True, "status": "dispatched_async"})
     except Exception as e:
         print(f"FCM Error: {e}")
         return jsonify({"success": False, "error": str(e)}), 500
