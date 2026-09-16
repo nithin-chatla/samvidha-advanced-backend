@@ -70,13 +70,16 @@ def _send_fcm_worker(fb_app, push_msg):
         print(f"⚠️ [FCM Send Error on {fb_app.name}]: {app_err}")
 
 def _dispatch_fcm_async(push_msg):
-    """Broadcasts FCM push notifications to all configured Firebase projects concurrently in parallel"""
+    """Dispatches FCM push notification to primary Firebase project without duplicate broadcasts"""
     try:
-        apps = list(firebase_admin._apps.values())
-        if not apps:
-            return None
-        for fb_app in apps:
+        # Send using the default (primary) Firebase app to prevent duplicate pushes
+        fb_app = firebase_admin.get_app()
+        if fb_app:
             executor.submit(_send_fcm_worker, fb_app, push_msg)
+        else:
+            apps = list(firebase_admin._apps.values())
+            if apps:
+                executor.submit(_send_fcm_worker, apps[0], push_msg)
     except Exception as e:
         print(f"⚠️ [FCM Dispatch Error]: {e}")
 
