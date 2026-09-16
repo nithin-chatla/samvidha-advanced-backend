@@ -105,10 +105,35 @@ def notify_anon_chat():
             message = message[:57] + "..."
 
         topic = "anon_chat"
-        title = sender or "Anonymous"
-        body_text = message
+        title = "Anonymous Chat"
+        body_text = f"{sender}: {message}" if sender and not message.startswith(sender) else message
         
         push_msg = messaging.Message(
+            notification=messaging.Notification(
+                title=title,
+                body=body_text,
+            ),
+            android=messaging.AndroidConfig(
+                priority="high",
+                collapse_key="anon_chat",
+                notification=messaging.AndroidNotification(
+                    channel_id="samvidha_alerts_high",
+                    priority="high",
+                    tag="anon_chat",
+                    default_sound=True,
+                    default_vibrate_timings=True,
+                    click_action="FLUTTER_NOTIFICATION_CLICK"
+                )
+            ),
+            apns=messaging.APNSConfig(
+                headers={"apns-priority": "10", "apns-push-type": "alert"},
+                payload=messaging.APNSPayload(
+                    aps=messaging.Aps(
+                        alert=messaging.ApsAlert(title=title, body=body_text)
+                    )
+                )
+            ),
+            topic=topic,
             data={
                 "route": "/anonymous_chat",
                 "title": title,
@@ -116,20 +141,7 @@ def notify_anon_chat():
                 "sender": sender,
                 "message": message,
                 "click_action": "FLUTTER_NOTIFICATION_CLICK"
-            },
-            android=messaging.AndroidConfig(
-                priority="high",
-            ),
-            apns=messaging.APNSConfig(
-                headers={"apns-priority": "10", "apns-push-type": "background"},
-                payload=messaging.APNSPayload(
-                    aps=messaging.Aps(
-                        content_available=True,
-                        alert=messaging.ApsAlert(title=title, body=body_text)
-                    )
-                )
-            ),
-            topic=topic
+            }
         )
         
         # Dispatch in background worker thread instantly
