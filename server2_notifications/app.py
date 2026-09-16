@@ -12,7 +12,7 @@ app = Flask(__name__)
 CORS(app)
 
 # High-concurrency async thread pool for zero-delay WhatsApp-speed background dispatching
-executor = ThreadPoolExecutor(max_workers=30)
+executor = ThreadPoolExecutor(max_workers=100)
 
 _initialized_projects = []
 
@@ -105,35 +105,29 @@ def notify_anon_chat():
             message = message[:57] + "..."
 
         topic = "anon_chat"
-        title = "Anonymous Chat Active"
-        body_text = f"{sender}: {message}"
-        if len(body_text) > 60:
-            body_text = body_text[:57] + "..."
+        title = sender or "Anonymous"
+        body_text = message
         
         push_msg = messaging.Message(
-            notification=messaging.Notification(
-                title=title,
-                body=body_text,
-            ),
             data={
                 "route": "/anonymous_chat",
                 "title": title,
                 "body": body_text,
                 "sender": sender,
+                "message": message,
                 "click_action": "FLUTTER_NOTIFICATION_CLICK"
             },
             android=messaging.AndroidConfig(
                 priority="high",
-                notification=messaging.AndroidNotification(
-                    channel_id="samvidha_alerts_high",
-                    priority="high",
-                    default_sound=True,
-                    default_vibrate_timings=True,
-                    visibility="public"
-                )
             ),
             apns=messaging.APNSConfig(
-                headers={"apns-priority": "10", "apns-push-type": "alert"}
+                headers={"apns-priority": "10", "apns-push-type": "background"},
+                payload=messaging.APNSPayload(
+                    aps=messaging.Aps(
+                        content_available=True,
+                        alert=messaging.ApsAlert(title=title, body=body_text)
+                    )
+                )
             ),
             topic=topic
         )

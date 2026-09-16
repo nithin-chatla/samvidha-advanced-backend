@@ -1,1 +1,1 @@
-web: gunicorn app:app --workers 2 --threads 8 --worker-class gthread --worker-connections 1000 --timeout 30
+web: gunicorn app:app --workers 4 --threads 25 --worker-class gthread --worker-connections 2000 --timeout 30 --keep-alive 5
