@@ -1372,304 +1372,8 @@ def scrape_timetable(session, ay=None, section=None):
     except Exception as e:
         return {"ok": False, "error": str(e), "ays": [], "sections": [], "schedule": [], "subjects": []}
 
-def scrape_qp_init(session):
-    actions = ["qp_scheme", "qp_and_solution", "qp_and_solutions", "question_paper"]
-    for act in actions:
-        try:
-            r = session.get(BASE + f"/home?action={act}", timeout=10)
-            check_auth(r)
-            soup = BeautifulSoup(r.text, "lxml")
-            options = []
-            select_name = "exam_code"
-            
-            def roman_to_int(roman):
-                return {'I': 1, 'II': 2, 'III': 3, 'IV': 4, 'V': 5, 'VI': 6, 'VII': 7, 'VIII': 8}.get(roman, 0)
-            
-            for select in soup.find_all('select'):
-                opts = select.find_all('option')
-                if len(opts) > 1:
-                    has_exam_keywords = any("SEMESTER" in opt.get_text(strip=True).upper() or "B.TECH" in opt.get_text(strip=True).upper() or "SEE" in opt.get_text(strip=True).upper() for opt in opts)
-                    if not has_exam_keywords: continue
-                    select_name = select.get('name', 'exam_code')
-                    for opt in opts:
-                        val = opt.get('value', '').strip()
-                        text = opt.get_text(strip=True)
-                        if val and val != "0" and "Select" not in text:
-                            sem_match = re.search(r'\b(I|II|III|IV|V|VI|VII|VIII)\s+SEMESTER\b', text.upper())
-                            sem_val = roman_to_int(sem_match.group(1)) if sem_match else 0
-                            is_see = 1 if "SEE" in text.upper() else 0
-                            options.append({
-                                "value": val, 
-                                "label": text,
-                                "sem_val": sem_val,
-                                "is_see": is_see
-                            })
-                    if options:
-                        break
-            
-            if options:
-                # Beautifully sort by Semester (Descending), SEE before CIE, and Alphabetical
-                options.sort(key=lambda x: (x['sem_val'], x['is_see'], x['label']), reverse=True)
-                clean_options = [{"value": o["value"], "label": o["label"]} for o in options]
-                return {"ok": True, "options": clean_options, "select_name": select_name, "action_used": act}
-        except SessionExpiredError:
-            raise
-        except:
-            continue
-            
-    return {"ok": False, "error": "Could not find exam dropdown.", "options": []}
 
-def scrape_qp_data(session, select_name, exam_code):
-    try:
-        data = []
-        seen_codes = set()
-        html_content = ""
 
-        def extract_from_mixed(content):
-            if not content: return None
-            content_str = str(content).strip()
-            if not content_str or 'NOT-UPLOADED' in content_str.upper() or 'NOT UPLOADED' in content_str.upper():
-                return None
-            
-            if content_str.startswith('http'):
-                return content_str.replace('\\/', '/')
-            
-            soup_cell = BeautifulSoup(content_str, "lxml")
-            a = soup_cell.find('a', href=True)
-            if a and not a['href'].startswith('#') and 'javascript' not in a['href'].lower():
-                link = a['href']
-                if not link.startswith('http'): link = BASE + '/' + link.lstrip('/')
-                return link.replace('\\/', '/')
-                    
-            s3_m = re.search(r'(https://iare-data\.s3[^\s"\'<>]*\.pdf)', content_str, re.IGNORECASE)
-            if s3_m: return s3_m.group(1).replace('\\/', '/')
-            
-            win_m = re.search(r"window\.open\(['\"]([^'\"]+)['\"]", content_str, re.IGNORECASE)
-            if win_m:
-                link = win_m.group(1)
-                if not link.startswith('http'): link = BASE + '/' + link.lstrip('/')
-                return link.replace('\\/', '/')
-
-            return None
-
-        def add_record(c_code, c_name, c_date, qp_raw, sol_raw):
-            if not c_code or c_code.lower() in ["n/a", "course code"]: return
-            if c_code in seen_codes: return
-            seen_codes.add(c_code)
-            
-            qp_link = extract_from_mixed(qp_raw)
-            sol_link = extract_from_mixed(sol_raw)
-            
-            data.append({
-                "course_code": c_code,
-                "course_name": c_name,
-                "date": c_date,
-                "qp_link": qp_link,
-                "sol_link": sol_link
-            })
-
-        base_urls = [
-            BASE + "/home?action=qp_scheme", BASE + "/home?action=qp_and_solution", 
-            BASE + "/home?action=qp_and_solutions", BASE + "/home?action=question_paper",
-            BASE + "/home?action=labrecord_std", BASE + "/pages/student/profile.php"
-        ]
-        hidden_payload = {}
-        for burl in base_urls:
-            try:
-                r_base = session.get(burl, timeout=8)
-                soup_base = BeautifulSoup(r_base.text, "lxml")
-                for inp in soup_base.find_all(['input', 'select']):
-                    name = inp.get('name') or inp.get('id')
-                    if name and inp.get('value'):
-                        hidden_payload[name] = inp.get('value')
-                
-                dept_m = re.search(r'name=["\']?dept_id["\']?\s+value=["\']?(\d+)["\']?', r_base.text, re.IGNORECASE)
-                if dept_m: hidden_payload['dept_id'] = dept_m.group(1)
-                
-                if 'dept_id' not in hidden_payload:
-                    dept_m2 = re.search(r'dept_id\s*[:=]\s*["\']?(\d+)["\']?', r_base.text, re.IGNORECASE)
-                    if dept_m2: hidden_payload['dept_id'] = dept_m2.group(1)
-
-                if 'dept_id' in hidden_payload:
-                    break 
-            except: pass
-
-        dept_id = hidden_payload.get('dept_id', '')
-
-        headers = {
-            'x-requested-with': 'XMLHttpRequest',
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-            'Referer': BASE + "/home?action=qp_scheme"
-        }
-
-        primary_ajax_url = BASE + "/pages/student/exam_result/ajax/qp_scheme.php"
-        primary_payload = {
-            "exam_code": exam_code,
-            "dept_id": dept_id,
-            "action": "get_qp_scheme_list",
-            "draw": "1", "start": "0", "length": "100",
-            "order[0][column]": "0", "order[0][dir]": "asc"
-        }
-        
-        for k, v in hidden_payload.items():
-            if k not in primary_payload:
-                primary_payload[k] = v
-
-        try:
-            r_ajax = session.post(primary_ajax_url, data=primary_payload, headers=headers, timeout=10)
-            if r_ajax.status_code == 200:
-                if "{" in r_ajax.text:
-                    with open("qp_debug_full.txt", "a") as f:
-                        f.write("PRIMARY URL: " + primary_ajax_url + "\n" + r_ajax.text[:1000] + "\n\n")
-                    try:
-                        j = r_ajax.json()
-                        if 'data' in j:
-                            for row in j['data']:
-                                if isinstance(row, dict):
-                                    add_record(
-                                        row.get('sub_code', '').strip(),
-                                        row.get('sub_title', '').strip(),
-                                        row.get('exam_date', '').strip(),
-                                        row.get('qp', ''),
-                                        row.get('scheme', '')
-                                    )
-                                elif isinstance(row, list):
-                                    if len(row) >= 6:
-                                        add_record(
-                                            BeautifulSoup(str(row[1]), "lxml").get_text(strip=True),
-                                            BeautifulSoup(str(row[2]), "lxml").get_text(strip=True),
-                                            BeautifulSoup(str(row[3]), "lxml").get_text(strip=True),
-                                            str(row[4]), str(row[5])
-                                        )
-                                    elif len(row) == 5:
-                                        add_record(
-                                            BeautifulSoup(str(row[1]), "lxml").get_text(strip=True),
-                                            BeautifulSoup(str(row[2]), "lxml").get_text(strip=True),
-                                            "",
-                                            str(row[3]), str(row[4])
-                                        )
-                                    elif len(row) == 4:
-                                        add_record(
-                                            BeautifulSoup(str(row[1]), "lxml").get_text(strip=True),
-                                            "", "",
-                                            str(row[2]), str(row[3])
-                                        )
-                    except Exception as e: 
-                        print("JSON Parse Error:", e)
-                
-                html_content += r_ajax.text
-        except: pass
-
-        if data: return {"ok": True, "records": data}
-
-        ajax_endpoints = [
-            "/pages/student/exam_result/ajax/qp_scheme.php", 
-            "/pages/student/qp_scheme/ajax/qp_scheme.php",
-            "/pages/student/qp_and_solution/ajax/get_data.php",
-            "/pages/student/qp_and_solutions/ajax/get_data.php",
-            "/pages/student/question_paper/ajax/get_data.php",
-            "/pages/student/qp_scheme/ajax/get_data.php",
-            "/pages/student/qp_scheme/ajax/qp_scheme_data.php",
-            "/pages/student/question_paper/ajax/qp.php"
-        ]
-        
-        for endpoint in ajax_endpoints:
-            for action_val in ['get_qp_scheme_list', 'get_data', 'show_data', 'get_qp_data', 'get_scheme', '']:
-                try:
-                    payload = {
-                        select_name: exam_code, "exam_code": exam_code, "examCode": exam_code,
-                        "dept_id": dept_id, "action": action_val,
-                        "draw": "1", "start": "0", "length": "100",
-                        "search[value]": "", "search[regex]": "false",
-                        "order[0][column]": "0", "order[0][dir]": "asc"
-                    }
-                    for i in range(7):
-                        payload[f"columns[{i}][data]"] = str(i)
-                        payload[f"columns[{i}][searchable]"] = "true"
-                        payload[f"columns[{i}][orderable]"] = "true"
-                        payload[f"columns[{i}][search][value]"] = ""
-                        payload[f"columns[{i}][search][regex]"] = "false"
-                        
-                    for k, v in hidden_payload.items():
-                        if k not in payload: payload[k] = v
-                        
-                    r2 = session.post(BASE + endpoint, data=payload, headers=headers, timeout=8)
-                    if r2.status_code == 200:
-                        if "{" in r2.text and "data" in r2.text:
-                            with open("qp_debug_full.txt", "a") as f:
-                                f.write("URL: " + endpoint + "\n" + r2.text[:1000] + "\n\n")
-                            try:
-                                j = r2.json()
-                                if 'data' in j:
-                                    for row in j['data']:
-                                        if isinstance(row, dict):
-                                            with open("qp_debug.txt", "a") as f:
-                                                import json
-                                                f.write(json.dumps(row) + "\n")
-                                            add_record(
-                                                row.get('sub_code', '').strip(),
-                                                row.get('sub_title', '').strip(),
-                                                row.get('exam_date', '').strip(),
-                                                row.get('qp', ''),
-                                                row.get('scheme', '')
-                                            )
-                                        elif isinstance(row, list):
-                                            if len(row) >= 6:
-                                                add_record(
-                                                    BeautifulSoup(str(row[1]), "lxml").get_text(strip=True),
-                                                    BeautifulSoup(str(row[2]), "lxml").get_text(strip=True),
-                                                    BeautifulSoup(str(row[3]), "lxml").get_text(strip=True),
-                                                    str(row[4]), str(row[5])
-                                                )
-                                            elif len(row) == 5:
-                                                add_record(
-                                                    BeautifulSoup(str(row[1]), "lxml").get_text(strip=True),
-                                                    BeautifulSoup(str(row[2]), "lxml").get_text(strip=True),
-                                                    "",
-                                                    str(row[3]), str(row[4])
-                                                )
-                                            elif len(row) == 4:
-                                                add_record(
-                                                    BeautifulSoup(str(row[1]), "lxml").get_text(strip=True),
-                                                    "", "",
-                                                    str(row[2]), str(row[3])
-                                                )
-                                    if data: return {"ok": True, "records": data}
-                            except: pass
-                        html_content += r2.text
-                except: pass
-
-        soup = BeautifulSoup(html_content, "lxml")
-        for tr in soup.find_all("tr"):
-            cols = tr.find_all(["td", "th"])
-            if len(cols) >= 4:
-                # If there are no links, it's probably not a paper row
-                has_link = any(col.find('a') or 'window.open' in str(col) for col in cols)
-                if not has_link: continue
-                
-                if len(cols) >= 6:
-                    if cols[0].get_text(strip=True).isdigit():
-                        add_record(cols[1].get_text(strip=True), cols[2].get_text(strip=True), cols[3].get_text(strip=True), str(cols[4]), str(cols[5]))
-                    else:
-                        add_record(cols[0].get_text(strip=True), cols[1].get_text(strip=True), cols[2].get_text(strip=True), str(cols[3]), str(cols[4]))
-                elif len(cols) == 5:
-                    if cols[0].get_text(strip=True).isdigit():
-                        add_record(cols[1].get_text(strip=True), cols[2].get_text(strip=True), "", str(cols[3]), str(cols[4]))
-                    else:
-                        add_record(cols[0].get_text(strip=True), cols[1].get_text(strip=True), "", str(cols[2]), str(cols[3]))
-                elif len(cols) == 4:
-                    if cols[0].get_text(strip=True).isdigit():
-                        add_record("Course", cols[1].get_text(strip=True), "", str(cols[2]), str(cols[3]))
-                    else:
-                        add_record(cols[0].get_text(strip=True), "Course", "", str(cols[2]), str(cols[3]))
-        
-        if not data:
-            return {"ok": True, "records": [], "debug": {"html": html_content[:3000], "hidden": hidden_payload}}
-        return {"ok": True, "records": data}
-    except SessionExpiredError:
-        raise
-    except Exception as e:
-        return {"ok": False, "records": [], "error": str(e)}
 
 def rasterize_and_compress_pdf(file_bytes):
     if not fitz or not Image: raise Exception("PyMuPDF/Pillow missing.")
@@ -1694,6 +1398,8 @@ def require_token():
         token_data = json.loads(base64.urlsafe_b64decode(token_str).decode())
         
         session = requests.Session()
+        session.mount("https://", HTTP_ADAPTER)
+        session.mount("http://", HTTP_ADAPTER)
         session.headers.update({
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
         })
@@ -1755,6 +1461,7 @@ def home_summary():
     set_cached(cache_key, result)
     return jsonify({"ok": True, "source": "live", "data": result})
 
+@app.route("/", methods=["GET"])
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify({"status": "ok", "service": "Samvidha Portal API (Server 1)"})
@@ -1782,53 +1489,111 @@ def api_login():
 
 @app.route("/logout", methods=["POST"])
 def api_logout():
-    # Since tokens are entirely stateless now, there's nothing to delete from memory.
-    # The client just deletes the token locally.
     return jsonify({"ok": True})
 
 @app.route("/profile", methods=["GET"])
 def api_profile():
     token = require_token()
-    return jsonify({"profile": scrape_profile(SESSIONS[token], TOKENS[token]["username"])})
+    u = getattr(g, "username", "")
+    cache_key = f"profile_{u}"
+    cached = get_cached(cache_key)
+    if cached: return jsonify(cached)
+    res = {"profile": scrape_profile(SESSIONS[token], u)}
+    if res.get("profile"): set_cached(cache_key, res)
+    return jsonify(res)
 
 @app.route("/attendance", methods=["GET"])
 def api_attendance():
     token = require_token()
-    return jsonify({"attendance": scrape_attendance(SESSIONS[token]), "biometric": scrape_biometric(SESSIONS[token])})
+    u = getattr(g, "username", "")
+    cache_key = f"att_{u}"
+    cached = get_cached(cache_key)
+    if cached: return jsonify(cached)
+    res = {"attendance": scrape_attendance(SESSIONS[token]), "biometric": scrape_biometric(SESSIONS[token])}
+    if res.get("attendance", {}).get("records"): set_cached(cache_key, res)
+    return jsonify(res)
 
 @app.route("/course_delivery", methods=["GET"])
 def api_course_delivery():
     token = require_token()
-    return jsonify({"course_content": scrape_course_content(SESSIONS[token])})
+    u = getattr(g, "username", "")
+    cache_key = f"cd_{u}"
+    cached = get_cached(cache_key)
+    if cached: return jsonify(cached)
+    res = {"course_content": scrape_course_content(SESSIONS[token])}
+    if res.get("course_content"): set_cached(cache_key, res)
+    return jsonify(res)
 
 @app.route("/results", methods=["GET"])
 def api_results():
     token = require_token()
+    u = getattr(g, "username", "")
+    cache_key = f"res_{u}"
+    cached = get_cached(cache_key)
+    if cached: return jsonify(cached)
     results_info = scrape_results(SESSIONS[token])
-    results_info["memos"] = scrape_memos(SESSIONS[token], TOKENS[token]["username"])
-    return jsonify({"results": results_info})
+    results_info["memos"] = scrape_memos(SESSIONS[token], u)
+    res = {"results": results_info}
+    if results_info.get("semesters"): set_cached(cache_key, res)
+    return jsonify(res)
 
 @app.route("/marks", methods=["GET"])
 def api_marks():
     token = require_token()
-    return jsonify({"midmarks": scrape_midmarks(SESSIONS[token])})
+    u = getattr(g, "username", "")
+    cache_key = f"marks_{u}"
+    cached = get_cached(cache_key)
+    if cached: return jsonify(cached)
+    res = {"midmarks": scrape_midmarks(SESSIONS[token])}
+    if res.get("midmarks"): set_cached(cache_key, res)
+    return jsonify(res)
 
 @app.route("/timetable", methods=["POST"])
 def api_timetable():
     token = require_token()
     data = request.get_json() or {}
-    return jsonify(scrape_timetable(SESSIONS[token], data.get("ay"), data.get("section")))
+    ay = data.get("ay")
+    section = data.get("section")
+    cache_key = f"tt_{ay}_{section}"
+    cached = get_cached(cache_key)
+    if cached: return jsonify(cached)
+    res = scrape_timetable(SESSIONS[token], ay, section)
+    if res and res.get("ok"): set_cached(cache_key, res)
+    return jsonify(res)
 
-@app.route("/qp_init", methods=["GET"])
-def api_qp_init():
+@app.route("/api/profile_details", methods=["POST"])
+def api_profile_details():
     token = require_token()
-    return jsonify(scrape_qp_init(SESSIONS[token]))
+    u = getattr(g, "username", "")
+    cache_key = f"prof_det_{u}"
+    cached = get_cached(cache_key)
+    if cached: return jsonify(cached)
+    res = scrape_profile_details(SESSIONS[token])
+    if res and res.get("ok"): set_cached(cache_key, res)
+    return jsonify(res)
 
-@app.route("/qp_data", methods=["POST"])
-def api_qp_data():
+@app.route("/api/fee_payment", methods=["POST"])
+def api_fee_payment():
     token = require_token()
-    data = request.get_json() or {}
-    return jsonify(scrape_qp_data(SESSIONS[token], data.get("select_name", "exam_code"), data.get("exam_code")))
+    u = getattr(g, "username", "")
+    cache_key = f"fee_pay_{u}"
+    cached = get_cached(cache_key)
+    if cached: return jsonify(cached)
+    res = scrape_fee_payment(SESSIONS[token])
+    if res and res.get("ok"): set_cached(cache_key, res)
+    return jsonify(res)
+
+@app.route("/api/fee_status", methods=["POST"])
+def api_fee_status():
+    token = require_token()
+    u = getattr(g, "username", "")
+    cache_key = f"fee_stat_{u}"
+    cached = get_cached(cache_key)
+    if cached: return jsonify(cached)
+    res = scrape_fee_status(SESSIONS[token])
+    if res and res.get("ok"): set_cached(cache_key, res)
+    return jsonify(res)
+
 
 @app.route("/faculty", methods=["GET"])
 def api_faculty():

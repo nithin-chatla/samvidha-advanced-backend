@@ -12,13 +12,8 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)
 
-try:
-    from rag_engine import UnifiedRAG
-    rag_engine = UnifiedRAG()
-    print("✅ [Server 3] Unified RAG Engine initialized successfully.")
-except Exception as e:
-    print(f"⚠️ [Server 3] RAG Engine initialization error: {e}")
-    rag_engine = None
+# AI / Chatbot backend load service disabled
+rag_engine = None
 
 def get_api_keys():
     keys = []
