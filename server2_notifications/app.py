@@ -94,6 +94,20 @@ def health():
         "engine": "WhatsApp-Speed Dual-Project High Priority Async Dispatcher"
     })
 
+_recent_chat_dispatches = {}
+
+def _is_chat_spam(sender, message):
+    now = time.time()
+    for k in list(_recent_chat_dispatches.keys()):
+        if now - _recent_chat_dispatches[k] > 20:
+            _recent_chat_dispatches.pop(k, None)
+    fp = f"{sender}:{message}".strip().lower()
+    last_t = _recent_chat_dispatches.get(fp, 0)
+    if now - last_t < 3.0: # 3-second spam debounce for identical message
+        return True
+    _recent_chat_dispatches[fp] = now
+    return False
+
 @app.route("/api/notify_anon_chat", methods=["POST"])
 def notify_anon_chat():
     try:
@@ -103,6 +117,11 @@ def notify_anon_chat():
         
         if not message:
             return jsonify({"success": False, "error": "No message provided"})
+
+        # Anti-spam deduplication check
+        if _is_chat_spam(sender, message):
+            print(f"🔇 [Server 2] Anti-spam blocked duplicate chat dispatch from {sender}")
+            return jsonify({"success": True, "status": "debounced_spam_prevented"})
 
         if len(message) > 60:
             message = message[:57] + "..."
