@@ -73,29 +73,36 @@ class TokenProxy:
 TOKENS = TokenProxy()
 
 # ==========================================
-# IN-MEMORY 5-MINUTE TTL CACHE & MEMORY CLEANER
+# IN-MEMORY TTL CACHE & MEMORY MANAGER
 # ==========================================
 CACHE = {}
+CACHE_LOCK = threading.Lock()
 CACHE_TTL = 300 # 5 minutes
 
 def get_cached(key):
-    if key in CACHE:
-        data, ts = CACHE[key]
-        if time.time() - ts < CACHE_TTL:
-            return data
-        else:
-            del CACHE[key]
+    with CACHE_LOCK:
+        if key in CACHE:
+            data, ts = CACHE[key]
+            if time.time() - ts < CACHE_TTL:
+                return data
+            else:
+                CACHE.pop(key, None)
     return None
 
 def set_cached(key, data):
-    # If cache size grows over 1000 items, purge expired ones
-    if len(CACHE) > 1000:
+    with CACHE_LOCK:
         now = time.time()
-        expired = [k for k, (_, ts) in CACHE.items() if now - ts >= CACHE_TTL]
-        for k in expired:
-            CACHE.pop(k, None)
-        gc.collect()
-    CACHE[key] = (data, time.time())
+        # Bound cache size to 500 items max to conserve memory on Render free tier
+        if len(CACHE) >= 500:
+            expired = [k for k, (_, ts) in CACHE.items() if now - ts >= CACHE_TTL]
+            for k in expired:
+                CACHE.pop(k, None)
+            # If still full, drop oldest 100 entries
+            if len(CACHE) >= 450:
+                oldest_keys = sorted(CACHE.keys(), key=lambda k: CACHE[k][1])[:100]
+                for k in oldest_keys:
+                    CACHE.pop(k, None)
+        CACHE[key] = (data, now)
 
 SESSIONS = SessionProxy()
 
@@ -1488,16 +1495,15 @@ def home_summary():
 
     session = SESSIONS[token]
     
-    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
-        f_profile = executor.submit(scrape_profile_details, session)
-        f_attendance = executor.submit(scrape_attendance, session)
-        f_timetable = executor.submit(scrape_timetable, session)
-        f_biometric = executor.submit(scrape_biometric, session)
-        
-        profile = f_profile.result()
-        attendance = f_attendance.result()
-        timetable = f_timetable.result()
-        biometric = f_biometric.result()
+    f_profile = scraping_executor.submit(scrape_profile_details, session)
+    f_attendance = scraping_executor.submit(scrape_attendance, session)
+    f_timetable = scraping_executor.submit(scrape_timetable, session)
+    f_biometric = scraping_executor.submit(scrape_biometric, session)
+    
+    profile = f_profile.result()
+    attendance = f_attendance.result()
+    timetable = f_timetable.result()
+    biometric = f_biometric.result()
 
     result = {
         "profile": profile,
