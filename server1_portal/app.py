@@ -44,7 +44,7 @@ def _keep_alive_pinger():
         "https://samvidha-portal-2.onrender.com/health",
         "https://samvidha-ai-api.onrender.com/health",
     ]
-    time.sleep(30)
+    time.sleep(10)
     while True:
         try:
             for url in targets:
@@ -54,7 +54,7 @@ def _keep_alive_pinger():
                     pass
         except Exception:
             pass
-        time.sleep(540) # Every 9 minutes
+        time.sleep(180) # Ping every 3 minutes (Render free tier sleeps at 15 mins)
 
 threading.Thread(target=_keep_alive_pinger, daemon=True).start()
 
@@ -275,61 +275,109 @@ def check_auth(r):
         raise SessionExpiredError("Session expired")
 
 def login_session(username, password):
-    session = requests.Session()
-    session.mount("https://", HTTP_ADAPTER)
-    session.mount("http://", HTTP_ADAPTER)
-    session.headers.update({
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    })
-    try:
-        # Step 1: GET the login page to obtain CSRF token and fresh PHPSESSID cookie
-        login_page = session.get(BASE + "/", timeout=20)
-        csrf_token = ""
-        soup = BeautifulSoup(login_page.text, "lxml")
-        
-        # The college site stores CSRF in: <meta name="csrf-token" content="...">
-        csrf_meta = soup.find("meta", {"name": "csrf-token"})
-        if csrf_meta:
-            csrf_token = csrf_meta.get("content", "")
-        
-        # Fallback: try hidden input (currently commented out on their site, but may come back)
-        if not csrf_token:
-            csrf_input = soup.find("input", {"name": re.compile(r"csrf", re.I)})
-            if csrf_input:
-                csrf_token = csrf_input.get("value", "")
-
-        # Step 2: POST login with CSRF token as HTTP header (X-CSRF-TOKEN)
-        headers = {
-            "Host": "samvidha.iare.ac.in",
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-            "Accept": "application/json, text/javascript, */*; q=0.01",
-            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-            "Origin": BASE,
-            "Referer": BASE + "/",
-            "X-Requested-With": "XMLHttpRequest",
-        }
-        if csrf_token:
-            headers["X-CSRF-TOKEN"] = csrf_token
-        
-        payload = {"username": username, "password": password}
-        res = session.post(LOGIN_URL, data=payload, headers=headers, timeout=20)
-        
-        if res.status_code != 200:
-            return None, f"server_error_{res.status_code}: {res.text[:50]}"
-            
+    clean_user = str(username).strip().upper()
+    clean_pass = str(password).strip()
+    
+    # Retry up to 3 attempts with fresh sessions & adaptive backoff
+    for attempt in range(3):
+        session = requests.Session()
+        session.mount("https://", HTTP_ADAPTER)
+        session.mount("http://", HTTP_ADAPTER)
+        session.headers.update({
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Accept-Language": "en-US,en;q=0.9",
+        })
         try:
-            j = res.json()
-        except Exception as e:
-            return None, f"json_error: {res.text[:50]}"
-            
-        if j.get("status") == "1":
+            # Step 1: GET the login page to obtain CSRF token and fresh PHPSESSID cookie
+            csrf_token = ""
+            for get_url in [BASE + "/", BASE + "/index.php"]:
+                try:
+                    login_page = session.get(get_url, timeout=12, allow_redirects=True)
+                    if login_page.status_code == 200:
+                        soup = BeautifulSoup(login_page.text, "lxml")
+                        csrf_meta = soup.find("meta", {"name": re.compile(r"csrf[-_]?token", re.I)})
+                        if csrf_meta and csrf_meta.get("content"):
+                            csrf_token = csrf_meta.get("content", "").strip()
+                        if not csrf_token:
+                            csrf_input = soup.find("input", {"name": re.compile(r"csrf", re.I)})
+                            if csrf_input and csrf_input.get("value"):
+                                csrf_token = csrf_input.get("value", "").strip()
+                        if csrf_token:
+                            break
+                except Exception as e:
+                    print(f"[Login] Attempt {attempt+1} GET {get_url} warning: {e}")
+
+            # Also check if CSRF token is stored in cookies
+            if not csrf_token:
+                for c_name in ["XSRF-TOKEN", "csrf_cookie_name", "csrf_token"]:
+                    if c_name in session.cookies:
+                        csrf_token = session.cookies[c_name]
+                        break
+
+            # Step 2: POST login with CSRF token as HTTP header (X-CSRF-TOKEN) and payload
+            headers = {
+                "Host": "samvidha.iare.ac.in",
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+                "Accept": "application/json, text/javascript, */*; q=0.01",
+                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                "Origin": BASE,
+                "Referer": BASE + "/",
+                "X-Requested-With": "XMLHttpRequest",
+            }
             if csrf_token:
-                session.headers.update({"X-CSRF-TOKEN": csrf_token})
-            return session, None
-        return None, "invalid_credentials"
-    except Exception as e:
-        print(f"Login error: {str(e)}")
-        return None, f"exception: {str(e)}"
+                headers["X-CSRF-TOKEN"] = csrf_token
+                headers["X-CSRF-Token"] = csrf_token
+            
+            payload = {"username": clean_user, "password": clean_pass}
+            if csrf_token:
+                payload["csrf_token"] = csrf_token
+
+            res = session.post(LOGIN_URL, data=payload, headers=headers, timeout=20, allow_redirects=True)
+            
+            if res.status_code == 200:
+                raw_text = res.text.strip()
+                try:
+                    # Clean potential PHP notices/warnings before extracting JSON
+                    json_match = re.search(r'\{.*\}', raw_text, re.DOTALL)
+                    if json_match:
+                        j = json.loads(json_match.group(0))
+                    else:
+                        j = res.json()
+                    
+                    status_val = str(j.get("status", "")).strip()
+                    msg_val = str(j.get("msg", "")).strip()
+
+                    if status_val == "1" or j.get("status") == 1 or msg_val.lower() == "success" or j.get("status") is True:
+                        if csrf_token:
+                            session.headers.update({"X-CSRF-TOKEN": csrf_token})
+                        return session, None
+                    elif status_val == "2" or "expired" in msg_val.lower() or "not active" in msg_val.lower():
+                        return None, "account_inactive_or_expired"
+                    elif status_val == "0" or "invalid" in str(j).lower() or "incorrect" in str(j).lower() or "wrong" in str(j).lower():
+                        return None, "invalid_credentials"
+                except Exception:
+                    # Non-JSON response (could be redirect or HTML response)
+                    text_lower = raw_text.lower()
+                    if "home" in text_lower or "dashboard" in text_lower or "logout" in text_lower or "stud_att" in text_lower:
+                        if csrf_token:
+                            session.headers.update({"X-CSRF-TOKEN": csrf_token})
+                        return session, None
+                    if "invalid" in text_lower or "incorrect" in text_lower or "wrong password" in text_lower:
+                        return None, "invalid_credentials"
+
+            # If attempt failed with temporary issue, retry with slight pause
+            if attempt < 2:
+                time.sleep(0.5 * (attempt + 1))
+                continue
+            return None, f"server_error_{res.status_code}"
+        except Exception as e:
+            print(f"[Login] Attempt {attempt+1} error: {str(e)}")
+            if attempt < 2:
+                time.sleep(0.5 * (attempt + 1))
+                continue
+            return None, f"exception: {str(e)}"
+            
+    return None, "college_server_unreachable"
 
 def scrape_attendance(session):
     try:
